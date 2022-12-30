@@ -13,14 +13,15 @@ function GetChampions() {
     const data = await response.json();
 
     const dataChampions = data.sets[Constants.currentSet].champions;
-    const sortedDataChampions = [...dataChampions].sort((a, b) => a.cost - b.cost);
+    const filteredChampions = dataChampions.filter((champion: any) => champion.traits.length > 0);
+    const sortedDataChampions = [...filteredChampions].sort((a, b) => a.cost - b.cost);
     setChamps(sortedDataChampions);
   }
 
   return (
     <ul>
       {champs.map((champion, index) => (
-        <li key={index}>{champion.name}</li>
+        <li key={index}>{champion.cost}-cost {champion.name}</li>
       ))}
     </ul>
   )
