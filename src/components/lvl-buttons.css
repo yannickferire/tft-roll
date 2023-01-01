@@ -1,0 +1,23 @@
+.lvl-buttons { border-color: currentColor; }
+.lvl-buttons:hover,
+.lvl-buttons.selected { color: #fff; }
+
+.lvl-button-1 { color: #213042; }
+.lvl-button-1:hover,
+.lvl-button-1.selected { background: #213042; }
+
+.lvl-button-2 { color: #156831; }
+.lvl-button-2:hover,
+.lvl-button-2.selected { background: #156831; }
+
+.lvl-button-3 { color: #12407c; }
+.lvl-button-3:hover,
+.lvl-button-3.selected { background: #12407c; }
+
+.lvl-button-4 { color: #893088; }
+.lvl-button-4:hover,
+.lvl-button-4.selected { background: #893088; }
+
+.lvl-button-5 { color: #b89d27; }
+.lvl-button-5:hover,
+.lvl-button-5.selected { background: #b89d27; }

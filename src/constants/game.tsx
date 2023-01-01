@@ -1,5 +1,4 @@
 export const rollPrice = 2;
-export const maxCost = 5;
 export const rollingChanceByLevel = {
   "lvl-1": {
     "1-cost": 100
