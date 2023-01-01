@@ -1,10 +1,12 @@
-import { useState } from 'react';
 import { possibleCost } from '../constants/cost';
-import './cost-buttons.css';
+import './costButtons.css';
 
-function LvlButtons() {
-  const [selectedCost, setSelectedCost] = useState<string>("1 cost");
+interface ICostButtons {
+  selectedCost: string;
+  setSelectedCost: (cost: string) => void;
+}
 
+const CostButtons: React.FC<ICostButtons> = ({ selectedCost, setSelectedCost }) => {
   return (
     <div className="inline-flex">
     {
@@ -26,4 +28,4 @@ function LvlButtons() {
   )
 }
 
-export default LvlButtons;
+export default CostButtons;
