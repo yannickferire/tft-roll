@@ -1,6 +1,6 @@
 // import GetChampions from './api/getChampions';
 import { useState } from 'react';
-import LvlButtons from './components/lvl-buttons';
+import CostButtons from './components/cost-buttons';
 import './index.css';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div className="App container p-10">
-      <LvlButtons />
+      <CostButtons />
       {/* <GetChampions /> */}
     </div>
   )
