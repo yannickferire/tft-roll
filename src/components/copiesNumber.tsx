@@ -7,7 +7,7 @@ const CopiesNumber: React.FC<ICopiesNumber> = ({ numberOfCopies, setNumberOfCopi
   return (
     <div className="inline-block text-lg bg-slate-200 rounded">
       <button 
-        onClick={() => setNumberOfCopies(numberOfCopies - 0)}
+        onClick={() => setNumberOfCopies(numberOfCopies - 1)}
         className={`py-2 px-4 rounded-l ${(numberOfCopies <= 0)?'text-slate-400':'hover:bg-slate-300'}`} 
         disabled={numberOfCopies <= 0}
       >-</button>
@@ -15,7 +15,7 @@ const CopiesNumber: React.FC<ICopiesNumber> = ({ numberOfCopies, setNumberOfCopi
       <button
         onClick={() => setNumberOfCopies(numberOfCopies + 1)} 
         className={`py-2 px-4 rounded-r ${(numberOfCopies >= 8)?'text-slate-400':'hover:bg-slate-300'}`} 
-        disabled={numberOfCopies >= 11}
+        disabled={numberOfCopies >= 8}
       >+</button>
     </div>
   )
