@@ -1,4 +1,5 @@
 export const rollPrice = 2;
+export const championsPerRoll = 5;
 export const rollingChancesByLevel: { [level: string]: { [cost: string]: number } } = {
   "level 1": {
     "1 cost": 100

@@ -20,7 +20,7 @@ const CostButtons: React.FC<ICostButtons> = ({ selectedCost, setSelectedCost }) 
             setSelectedCost(e.currentTarget.innerText);
           }} 
           className={`${(selectedCost == cost + ' cost')?'selected':''} border font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 cost-buttons cost-button-${cost}`}>
-          {cost} cost
+          {cost} 
         </button>
       ))
     }
