@@ -6,7 +6,8 @@ export async function fetchChampions() {
 
   const dataChampions = data.sets[currentSet].champions;
   const filteredChampions = dataChampions.filter((champion: any) => champion.traits.length > 0);
-  const sortedDataChampions = [...filteredChampions].sort((a, b) => a.name - b.name); // not working apparently
+  const withSelectionChampions = filteredChampions.map((champion: any) => ({ ...champion, selected: false }))
+  const sortedDataChampions = [...withSelectionChampions].sort((a, b) => a.name - b.name); // not working apparently
 
   return sortedDataChampions;
 }
