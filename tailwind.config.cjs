@@ -1,6 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+	safelist: [
+		"fill-crema",
+		"fill-midnight",
+		"border-1cost",
+		"border-2cost",
+		"border-3cost",
+		"border-4cost",
+		"border-5cost",
+	],
 	theme: {
 		container: {
 			center: true,

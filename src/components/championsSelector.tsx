@@ -1,6 +1,6 @@
 import { possibleCost } from '../constants/cost';
-import goldIcon from '../assets/icons/gold.svg';
 import { championImageURL, currentSet } from '../constants/set';
+import GoldIcon from './goldIcon';
 
 interface IChampionsSelector {
   champs: any[];
@@ -14,11 +14,7 @@ const ChampionsSelector: React.FC<IChampionsSelector> = ({ champs, setChamps, se
     setChamps(
       champs.map((champion, i) => {
         if (i === index) {
-          if (champion.selected == false) {
-            return { ...champion, selected: true };
-          } else {
-            return { ...champion, selected: false };
-          }
+          return { ...champion, selected: champion.selected ? false : true };
         } else {
           return { ...champion };
         }
@@ -40,7 +36,9 @@ const ChampionsSelector: React.FC<IChampionsSelector> = ({ champs, setChamps, se
                 setSelectedCost(e.currentTarget.innerText + ' cost');
               }} 
               className={`${(selectedCost == cost + ' cost')?'bg-midday':''} h-12 px-5 py-1 flex content-center justify-center hover:bg-midday`}>
-              <span className="my-auto flex"><img className="mr-2 w-3" src={goldIcon} alt="cost" /> {cost}</span>
+              <span className="my-auto flex">
+                <GoldIcon color="crema" /> <span className="ml-2">{cost}</span>
+              </span>
             </button>
           ))
         }
