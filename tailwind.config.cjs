@@ -4,11 +4,14 @@ module.exports = {
 	safelist: [
 		"fill-crema",
 		"fill-midnight",
+		"fill-silver",
+		"fill-gold",
 		"border-1cost",
 		"border-2cost",
 		"border-3cost",
 		"border-4cost",
 		"border-5cost",
+		"w-4",
 	],
 	theme: {
 		container: {
@@ -20,6 +23,8 @@ module.exports = {
 			midday: "#064663",
 			morning: "#ECB365",
 			crema: "#ffffd2",
+			silver: "#b5cbde",
+			gold: "#f9be0a",
 			"1cost": "#9f9a89",
 			"2cost": "#39b65a",
 			"3cost": "#2875be",

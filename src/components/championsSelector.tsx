@@ -1,6 +1,6 @@
 import { possibleCost } from '../constants/cost';
 import { championImageURL, currentSet } from '../constants/set';
-import GoldIcon from './goldIcon';
+import GoldIcon from './icons/goldIcon';
 
 interface IChampionsSelector {
   champs: any[];

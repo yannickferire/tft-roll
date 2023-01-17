@@ -1,7 +1,3 @@
-import { championImageURL, currentSet } from '../constants/set';
-import { rollingChancesByLevel, championsPerRoll, rollPrice } from '../constants/game';
-import { numberOfChampionsByCost, numberOfCopiesByCost, numberOfCopiesForTier } from '../constants/champions';
-import GoldIcon from './goldIcon';
 import ChampionOdds from './championOdds';
 
 interface IChampionsOdds {

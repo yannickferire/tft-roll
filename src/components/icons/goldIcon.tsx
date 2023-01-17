@@ -1,8 +1,9 @@
 interface GoldIcon {
   color: string;
+  size?: number;
 }
 
-const GoldIcon: React.FC<GoldIcon> = ({color}) => {
+const GoldIcon: React.FC<GoldIcon> = ({color, size = 3}) => {
   return (
     <svg className={`w-3 fill-${color} inline-block`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.8 8.8">
       <g id="Layer_1" data-name="Layer 1">
