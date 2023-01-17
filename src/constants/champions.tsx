@@ -12,3 +12,8 @@ export const numberOfCopiesByCost: { [cost: string]: number } = {
   "4 cost": 12,
   "5 cost": 10
 }
+export const numberOfCopiesForTier: { [tier: string]: number } = {
+  "1 star": 1,
+  "2 star": 3,
+  "3 star": 9
+}

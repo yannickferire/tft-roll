@@ -33,7 +33,7 @@ const App: React.FC = () => {
       <h2 className="mt-6 mb-2 text-lg">Level</h2>
       <LevelSelector selectedLevel={selectedLevel} setSelectedLevel={setSelectedLevel} /> 
       
-      <ChampionsOdds champs={champs}  />
+      <ChampionsOdds selectedLevel={selectedLevel} champs={champs}  />
     </div>
   )
 }
