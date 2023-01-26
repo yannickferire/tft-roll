@@ -2,6 +2,8 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+svg { vertical-align: baseline; }
+
 .hover-effect {
   position: relative;
 }

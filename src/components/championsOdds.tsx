@@ -9,7 +9,7 @@ interface IChampionsOdds {
 
 const ChampionsOdds: React.FC<IChampionsOdds> = ({ champs, selectedLevel }) => {
   const getPool = () => {
-    const newPool: any = {};
+    const newPool: any = [];
     Object.keys(numberOfChampionsByCost).forEach((cost) => {
         newPool[cost] = numberOfChampionsByCost[cost] * numberOfCopiesByCost[cost];
     });
@@ -25,7 +25,7 @@ const ChampionsOdds: React.FC<IChampionsOdds> = ({ champs, selectedLevel }) => {
       <ul>
       {selectedChampions.map((champion, index) => {
         return (
-            <li key={index} className="flex flex-wrap border-b border-dashed py-5 content-center">
+            <li key={index} className="flex flex-wrap border-b border-dashed py-5 content-center last:border-0">
               <ChampionOdds champion={champion} selectedLevel={selectedLevel} pool={pool} setPool={setPool} />
             </li>
       )})}
