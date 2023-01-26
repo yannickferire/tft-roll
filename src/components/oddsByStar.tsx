@@ -15,9 +15,11 @@ interface IOddsByStar {
     selected: boolean
   }
   selectedLevel: number;
+  pool: [cost: string];
+  setPool: (cost: string) => void;
 }
 
-const OddsByStar: React.FC<IOddsByStar> = ({ star, champion, selectedLevel }) => {
+const OddsByStar: React.FC<IOddsByStar> = ({ star, champion, selectedLevel, pool, setPool }) => {
   const starColors = ['midnight', 'silver', 'gold'];
   const starArray = Array.from({ length: star }, (_, index) => index + 1);
   const rollsNeeded = (copiesNeeded: number) => {

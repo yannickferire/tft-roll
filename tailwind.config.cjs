@@ -11,6 +11,11 @@ module.exports = {
 		"border-3cost",
 		"border-4cost",
 		"border-5cost",
+		"text-1cost",
+		"text-2cost",
+		"text-3cost",
+		"text-4cost",
+		"text-5cost",
 		"w-4",
 	],
 	theme: {

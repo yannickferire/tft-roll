@@ -44,19 +44,14 @@ const ChampionsSelector: React.FC<IChampionsSelector> = ({ champs, setChamps, se
         }
       </div>
       <ul className="flex flex-wrap p-5 pb-2 bg-midday">
-        <li className="border-1cost hidden"></li>
-        <li className="border-2cost hidden"></li>
-        <li className="border-3cost hidden"></li>
-        <li className="border-4cost hidden"></li>
-        <li className="border-5cost hidden"></li>
         {champs.map((champion, index) => (
           <li 
             key={index} 
-            className={`${champion.cost + ' cost' !== selectedCost ? "hidden " : ""}${champion.selected === true ? "selected ": ""}cursor-pointer mr-3 mb-3`}
+            className={`${champion.cost + ' cost' !== selectedCost ? "hidden " : ""}${champion.selected === true ? "champ-selected ": ""}cursor-pointer mr-3 mb-3 hover-effect text-${champion.cost}cost`}
             onClick={() => handleChampionSelection(index)}
           >
             <img 
-              className={`w-16 mx-auto border-2 transition-all duration-300 border-${champion.cost}cost rounded hover:border-4`}
+              className={`w-16 mx-auto border-2 transition-all duration-300 border-${champion.cost}cost rounded relative z-10`}
               src={`${championImageURL}/${champion.apiName.toLowerCase()}_square.tft_set${currentSet}.png`} 
               alt={champion.name} />
           </li>
