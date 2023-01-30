@@ -11,11 +11,13 @@ const App: React.FC = () => {
   const [champs, setChamps] = useState<any[]>([]);
   const [selectedCost, setSelectedCost] = useState<string>("3 cost");
   const [selectedLevel, setSelectedLevel] = useState<number>(7);
+  const [championsLoaded, setchampionsLoaded] = useState(false);
 
   useEffect(() => {
     (async () => {
       const champions = await fetchChampions();
       setChamps(champions);
+      setchampionsLoaded(true);
     })();
   }, []);
 
@@ -28,6 +30,7 @@ const App: React.FC = () => {
         setChamps={setChamps}
         selectedCost={selectedCost} 
         setSelectedCost={setSelectedCost}
+        championsLoaded={championsLoaded}
       />
       
       <h2 className="mt-6 mb-2 text-lg">Level</h2>

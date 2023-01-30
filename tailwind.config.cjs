@@ -19,6 +19,7 @@ module.exports = {
 		"text-3cost",
 		"text-4cost",
 		"text-5cost",
+		"bg-3cost",
 		"w-4",
 	],
 	theme: {
