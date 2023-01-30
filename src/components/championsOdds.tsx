@@ -21,7 +21,7 @@ const ChampionsOdds: React.FC<IChampionsOdds> = ({ champs, selectedLevel }) => {
   selectedChampions.sort((a, b) => a.cost - b.cost);
 
   return (
-    <section className="block mt-6 p-5 bg-crema text-midnight rounded">
+    <section className="flex-1 ml-4 p-4 bg-crema text-midnight rounded">
       <ul>
       {selectedChampions.map((champion, index) => {
         return (
