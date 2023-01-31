@@ -21,11 +21,11 @@ const ChampionsOdds: React.FC<IChampionsOdds> = ({ champs, selectedLevel }) => {
   selectedChampions.sort((a, b) => a.cost - b.cost);
 
   return (
-    <section className="flex-1 ml-4 p-4 bg-crema text-midnight rounded">
+    <section className="flex-1 ml-4 px-4 bg-crema text-midnight rounded">
       <ul>
       {selectedChampions.map((champion, index) => {
         return (
-            <li key={index} className="flex flex-wrap border-b border-dashed py-5 content-center last:border-0">
+            <li key={index} className="flex flex-wrap border-b border-dashed py-6 content-center last:border-0">
               <ChampionOdds champion={champion} selectedLevel={selectedLevel} pool={pool} setPool={setPool} />
             </li>
       )})}
