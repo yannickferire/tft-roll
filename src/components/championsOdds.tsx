@@ -32,7 +32,7 @@ const ChampionsOdds: React.FC<IChampionsOdds> = ({ champs, selectedLevel }) => {
         )})}
         </ul>
         ):
-        <p className="p-10 text-center">Choose one or multiple champions to see <br/>how much average gold you will need to hit them. <br/><strong>Good Luck Have Fun!</strong></p>
+        <p className="p-10 text-center"><strong>Choose one or multiple champions</strong> to see <br/>how much average gold you will need to hit them. <br/>Good Luck, Have Fun!</p>
       }
     </main>
   )

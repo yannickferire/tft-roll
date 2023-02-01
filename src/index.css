@@ -41,9 +41,9 @@ svg { vertical-align: baseline; }
   transition: all cubic-bezier(0.4, 0, 0.2, 1) 350ms;
 }
 .hover-effect:hover:after {
-  top: -5%; left: 5%;
+  top: -7%; left: 7%;
 }
 .champ-selected:after {
-  width: 110%; height: 110%; top: -5%; left: -5%;
+  width: 114%; height: 114%; top: -7%; left: -7%;
 }
-.champ-selected:hover:after { top: -5%; left: -5%; }
+.champ-selected:hover:after { top: -7%; left: -7%; }
