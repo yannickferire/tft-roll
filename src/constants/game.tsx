@@ -2,31 +2,46 @@ export const rollPrice = 2;
 export const championsPerRoll = 5;
 export const rollingChancesByLevel: { [level: string]: { [cost: string]: number } } = {
   "level 1": {
-    "1 cost": 100
+    "1 cost": 100,
+    "2 cost": 0,
+    "3 cost": 0,
+    "4 cost": 0,
+    "5 cost": 0
   },
   "level 2": {
-    "1 cost": 100
+    "1 cost": 100,
+    "2 cost": 0,
+    "3 cost": 0,
+    "4 cost": 0,
+    "5 cost": 0
   },
   "level 3": {
     "1 cost": 75,
-    "2 cost": 25
+    "2 cost": 25,
+    "3 cost": 0,
+    "4 cost": 0,
+    "5 cost": 0
   },
   "level 4": {
     "1 cost": 55,
     "2 cost": 30,
-    "3 cost": 15
+    "3 cost": 15,
+    "4 cost": 0,
+    "5 cost": 0
   },
   "level 5": {
     "1 cost": 45,
     "2 cost": 33,
     "3 cost": 20,
-    "4 cost": 2
+    "4 cost": 2,
+    "5 cost": 0
   },
   "level 6": {
     "1 cost": 25,
     "2 cost": 40,
     "3 cost": 30,
-    "4 cost": 5
+    "4 cost": 5,
+    "5 cost": 0
   },
   "level 7": {
     "1 cost": 19,

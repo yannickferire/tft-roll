@@ -9,8 +9,8 @@ import ChampionsOdds from './components/championsOdds';
 
 const App: React.FC = () => {
   const [champs, setChamps] = useState<any[]>([]);
-  const [selectedCost, setSelectedCost] = useState<string>("3 cost");
-  const [selectedLevel, setSelectedLevel] = useState<number>(7);
+  const [selectedCost, setSelectedCost] = useState<string>("5 cost");
+  const [selectedLevel, setSelectedLevel] = useState<number>(1);
   const [championsLoaded, setchampionsLoaded] = useState(false);
 
   useEffect(() => {

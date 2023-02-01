@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { rollingChancesByLevel, championsPerRoll, rollPrice } from '../constants/game';
-import { numberOfChampionsByCost, numberOfCopiesByCost, numberOfCopiesForTier } from '../constants/champions';
+import { numberOfCopiesByCost, numberOfCopiesForTier } from '../constants/champions';
 import GoldIcon from './icons/goldIcon';
 import StarIcon from './icons/starIcon';
 import RollIcon from './icons/rollIcon';
@@ -54,9 +54,21 @@ const OddsByStar: React.FC<IOddsByStar> = ({ star, champion, selectedLevel, pool
       </span>
       {copiesNeeded > 0 ? (
         <>
-          <span>{ rollsNeeded(copiesNeeded) } <RollIcon color="midnight" /> = <GoldIcon color="midnight" /> { goldsNeeded(rollsNeeded(copiesNeeded)) }</span>
-          <span>{ copiesNeeded } <CopyIcon color="midnight" /> = <GoldIcon color="midnight" /> {champion.cost * copiesNeeded }</span>
-          <span className="mt-2 text-2xl font-medium"><GoldIcon size={4} color="midnight" /> {goldsNeeded(rollsNeeded(copiesNeeded)) + champion.cost * copiesNeeded}</span>
+          { // If there is 0% chance of getting a champion of this cost per roll, display infinity sign
+            championOfThisCostPerRoll !== 0 ? (
+            <>
+              <span>{ rollsNeeded(copiesNeeded) } <RollIcon color="midnight" /> = <GoldIcon color="midnight" /> { goldsNeeded(rollsNeeded(copiesNeeded)) }</span>
+              <span>{ copiesNeeded } <CopyIcon color="midnight" /> = <GoldIcon color="midnight" /> {champion.cost * copiesNeeded }</span>
+              <span className="mt-2 text-2xl font-medium"><GoldIcon size={4} color="midnight" /> {goldsNeeded(rollsNeeded(copiesNeeded)) + champion.cost * copiesNeeded}</span>
+            </>
+          ):(
+            <>
+              <span>∞ <RollIcon color="midnight" /> = <GoldIcon color="midnight" /> ∞</span>
+              <span>{ copiesNeeded } <CopyIcon color="midnight" /> = <GoldIcon color="midnight" /> {champion.cost * copiesNeeded }</span>
+              <span className="mt-2 text-2xl font-medium"><GoldIcon size={4} color="midnight" /> ∞</span>
+            </>
+          )}
+          
         </>
       ): <span>GG</span>
       }
