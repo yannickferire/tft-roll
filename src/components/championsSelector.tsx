@@ -63,12 +63,12 @@ const ChampionsSelector: React.FC<IChampionsSelector> = ({ champs, setChamps, se
           ))}
         </ul>
         ): 
-        <ul className="grid-rows-5 p-5 pb-2 bg-midday">
+        <ul className="grid grid-cols-5 gap-4 p-4 bg-midday">
           {skeletonNumberOfChampions.map((index) => (
             <li 
               key={index} 
               role="status"
-              className={`mr-3 mb-3 animate-pulse`}
+              className={`animate-pulse`}
             >
               <div className="flex items-center justify-center w-16 h-16 mx-auto bg-3cost rounded">
               </div>
