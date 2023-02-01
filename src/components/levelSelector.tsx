@@ -6,18 +6,18 @@ interface ILevelSelector {
 const LevelSelector: React.FC<ILevelSelector> = ({ selectedLevel, setSelectedLevel }) => {
   const maxLevel = 11;
   return (
-    <div className="inline-block text-lg bg-earlynight rounded">
+    <div className="inline-block text-xl mb-4">
       <button 
         onClick={() => setSelectedLevel(selectedLevel - 1)}
-        className={`py-2 px-4 rounded-l ${(selectedLevel <= 1)?'opacity-40':'hover:bg-midday'}`} 
+        className={`text-morning ${(selectedLevel <= 1)?'opacity-40':'hover-effect'}`} 
         disabled={selectedLevel <= 1}
-      >-</button>
-      <span className="p-2 w-20 inline-block text-center">{selectedLevel}</span>
+      ><span className="w-10 h-10 block leading-9 rounded bg-crema text-midnight relative z-10">-</span></button>
+      <span className="px-4 w-28 inline-block text-center">Lvl. {selectedLevel}</span>
       <button
         onClick={() => setSelectedLevel(selectedLevel + 1)} 
-        className={`py-2 px-4 rounded-r ${(selectedLevel >= maxLevel)?'opacity-40':'hover:bg-midday'}`} 
+        className={`text-morning ${(selectedLevel >= maxLevel)?'opacity-40':'hover-effect'}`} 
         disabled={selectedLevel >= maxLevel}
-      >+</button>
+      ><span className="w-10 h-10 block leading-9 rounded bg-crema text-midnight relative z-10">+</span></button>
     </div>
   )
 }

@@ -26,7 +26,8 @@ const App: React.FC = () => {
       <h1 className="text-4xl font-extrabold mb-12"><img className="logo" src={logo} width="160" alt="tft odds logo" /></h1>
 
       <div className="flex items-start">
-        <div className="flex flex-col w-96">
+        <aside className="flex flex-col w-96">
+          <LevelSelector selectedLevel={selectedLevel} setSelectedLevel={setSelectedLevel} /> 
           <ChampionsSelector 
             champs={champs} 
             setChamps={setChamps}
@@ -34,11 +35,7 @@ const App: React.FC = () => {
             setSelectedCost={setSelectedCost}
             championsLoaded={championsLoaded}
           />
-          <div>
-            <p className="mt-6 mb-2 text-lg">Level</p>
-            <LevelSelector selectedLevel={selectedLevel} setSelectedLevel={setSelectedLevel} /> 
-          </div>
-        </div>
+        </aside>
         
         <ChampionsOdds selectedLevel={selectedLevel} champs={champs}  />
       </div>
