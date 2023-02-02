@@ -27,7 +27,9 @@ const ResetButton: React.FC<IResetButton> = ({ selectedLevel, setSelectedLevel, 
       onClick={() => handleReset()} 
       className={`ml-4 h-10 text-midday ${(resetEnabled == false)?'opacity-40':'hover-effect'}`}
       disabled={resetEnabled == false}>
-      <span className="w-full px-4 h-10 block leading-10 rounded bg-earlynight text-crema relative z-10">Reset</span>
+      <span className="w-full px-4 h-10 block leading-10 rounded bg-earlynight text-crema relative z-10">
+        <span className="inline-block leading-9 text-xl rotate-45 mr-2">+</span>Reset
+      </span>
     </button>
   )
 }
