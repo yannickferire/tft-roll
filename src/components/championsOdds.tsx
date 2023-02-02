@@ -18,7 +18,7 @@ const ChampionsOdds: React.FC<IChampionsOdds> = ({ champs, selectedLevel }) => {
   const [pool, setPool] = useState(getPool());
 
   let selectedChampions = champs.filter((champion) => champion.selected);
-  selectedChampions.sort((a, b) => a.cost - b.cost);
+  selectedChampions.sort((a, b) => b.position - a.position);
 
   return (
     <main className="flex-1 ml-4 px-4 bg-crema text-midnight relative ticket">

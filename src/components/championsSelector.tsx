@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { possibleCost } from '../constants/cost';
 import { championImageURL, currentSet } from '../constants/set';
 import { numberOfChampionsByCost } from '../constants/champions';
@@ -12,11 +13,19 @@ interface IChampionsSelector {
 }
 
 const ChampionsSelector: React.FC<IChampionsSelector> = ({ champs, setChamps, selectedCost, setSelectedCost, championsLoaded }) => {
+  const [positionOfSelection, setPositionOfSelection] = useState(1);
+
   const handleChampionSelection = (index: number) => {
     setChamps(
       champs.map((champion, i) => {
         if (i === index) {
-          return { ...champion, selected: champion.selected ? false : true };
+          if (champion.selected) {
+            return { ...champion, selected: false, position: 0 };
+          } else {
+            setPositionOfSelection(positionOfSelection + 1);
+            return  { ...champion, selected: true, position: positionOfSelection }
+          }
+
         } else {
           return { ...champion };
         }
