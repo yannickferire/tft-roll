@@ -13,7 +13,7 @@
 
 svg { vertical-align: baseline; }
 
-.ticket { top: 10px; }
+.ticket { top: 12px; }
 .ticket:before,
 .ticket:after {
   content: '';
@@ -24,6 +24,7 @@ svg { vertical-align: baseline; }
 }
 .ticket:before { top: -10px; }
 .ticket:after { 
+  background-position-x: -20px;
   transform: rotate(180deg);
 }
 

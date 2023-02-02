@@ -25,7 +25,6 @@ const ChampionsSelector: React.FC<IChampionsSelector> = ({ champs, setChamps, se
             setPositionOfSelection(positionOfSelection + 1);
             return  { ...champion, selected: true, position: positionOfSelection }
           }
-
         } else {
           return { ...champion };
         }
@@ -61,12 +60,12 @@ const ChampionsSelector: React.FC<IChampionsSelector> = ({ champs, setChamps, se
           {champs.map((champion, index) => (
             <li 
               key={index} 
-              className={`w-16 h-16 border-2 border-${champion.cost}cost rounded relative ${champion.cost + ' cost' !== selectedCost ? "hidden " : ""}${champion.selected === true ? "champ-selected ": ""}cursor-pointer hover-effect text-${champion.cost}cost`}
+              className={`aspect-square border-2 border-${champion.cost}cost rounded relative ${champion.cost + ' cost' !== selectedCost ? "hidden " : ""}${champion.selected === true ? "champ-selected ": ""}cursor-pointer hover-effect text-${champion.cost}cost`}
               onClick={() => handleChampionSelection(index)}
             >
               <div className="w-full h-full relative block rounded overflow-hidden">
                 <img 
-                className={`w-20 -left-5 max-w-none absolute z-10`}
+                className={`w-20 -left-6 max-w-none absolute z-10`}
                 src={`${championImageURL}/${champion.apiName.toLowerCase()}_square.tft_set${currentSet}.png`} 
                 alt={champion.name} />
               </div>
@@ -81,7 +80,7 @@ const ChampionsSelector: React.FC<IChampionsSelector> = ({ champs, setChamps, se
               role="status"
               className={`animate-pulse`}
             >
-              <div className="flex items-center justify-center w-16 h-16 mx-auto bg-3cost rounded">
+              <div className="flex items-center justify-center aspect-square mx-auto bg-3cost rounded">
               </div>
             </li>
           ))}

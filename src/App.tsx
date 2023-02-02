@@ -3,14 +3,16 @@ import { useState, useEffect } from 'react';
 import './index.css';
 import logo from './assets/tft-odds-logo.svg';
 import { fetchChampions } from './api/fetchChampions';
-import ChampionsSelector from './components/championsSelector';
 import LevelSelector from './components/levelSelector';
+import ResetButton from './components/resetButton';
+import ChampionsSelector from './components/championsSelector';
 import ChampionsOdds from './components/championsOdds';
+import { baseCost, baseLevel } from './constants/constants';
 
 const App: React.FC = () => {
   const [champs, setChamps] = useState<any[]>([]);
-  const [selectedCost, setSelectedCost] = useState<string>("3 cost");
-  const [selectedLevel, setSelectedLevel] = useState<number>(7);
+  const [selectedCost, setSelectedCost] = useState<string>(baseCost + " cost");
+  const [selectedLevel, setSelectedLevel] = useState<number>(baseLevel);
   const [championsLoaded, setchampionsLoaded] = useState(false);
 
   useEffect(() => {
@@ -22,12 +24,15 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="App container p-4">
+    <div className="App container px-5 py-6">
       <h1 className="text-4xl font-extrabold mb-12"><img className="logo" src={logo} width="160" alt="tft odds logo" /></h1>
 
       <div className="flex items-start">
         <aside className="flex flex-col w-96">
-          <LevelSelector selectedLevel={selectedLevel} setSelectedLevel={setSelectedLevel} /> 
+          <div className="flex justify-between">
+            <LevelSelector selectedLevel={selectedLevel} setSelectedLevel={setSelectedLevel} /> 
+            <ResetButton selectedLevel={selectedLevel} setSelectedLevel={setSelectedLevel} champs={champs} setChamps={setChamps} />
+          </div>
           <ChampionsSelector 
             champs={champs} 
             setChamps={setChamps}

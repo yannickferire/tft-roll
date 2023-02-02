@@ -21,7 +21,7 @@ const ChampionsOdds: React.FC<IChampionsOdds> = ({ champs, selectedLevel }) => {
   selectedChampions.sort((a, b) => b.position - a.position);
 
   return (
-    <main className="flex-1 ml-4 px-4 bg-crema text-midnight relative ticket">
+    <main className="flex-1 ml-6 px-4 bg-crema text-midnight relative ticket">
       {selectedChampions.length > 0 ? (
         <ul>
         {selectedChampions.map((champion, index) => {
