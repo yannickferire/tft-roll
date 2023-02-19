@@ -10,15 +10,15 @@ const CopiesNumber: React.FC<ICopiesNumber> = ({ ownedCopies, setOwnedCopies }) 
       <div className="flex text-lg w-full justify-between mb-2">
         <button 
           onClick={() => { setOwnedCopies(ownedCopies - 1)}}
-          className={`text-midday text-lg ${(ownedCopies <= 0)?'opacity-40':'hover-effect'}`} 
+          className={`text-midday h-10 text-lg ${(ownedCopies <= 0)?'opacity-40':'hover-effect'}`} 
           disabled={ownedCopies <= 0}
-        ><span className="w-10 h-10 block box-content leading-9 rounded bg-crema text-midnight border-2 border-midnight relative z-10">–</span></button>
+        ><span className="w-10 h-10 block leading-8 rounded bg-crema text-midnight border-2 border-midnight relative z-10">–</span></button>
         <span className="p-2 w-10 inline-block text-center">{ownedCopies}</span>
         <button
           onClick={() => setOwnedCopies(ownedCopies + 1)} 
-          className={`text-midday text-lg ${(ownedCopies >= 9)?'opacity-40':'hover-effect'}`} 
+          className={`text-midday h-10 text-lg ${(ownedCopies >= 9)?'opacity-40':'hover-effect'}`} 
           disabled={ownedCopies >= 9}
-        ><span className="w-10 h-10 block box-content leading-9 rounded bg-crema text-midnight border-2 border-midnight relative z-10">+</span></button>
+        ><span className="w-10 h-10 block leading-8 rounded bg-crema text-midnight border-2 border-midnight relative z-10">+</span></button>
       </div>
     </div>
   )

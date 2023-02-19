@@ -62,6 +62,7 @@ const ChampionsSelector: React.FC<IChampionsSelector> = ({ champs, setChamps, se
               key={index} 
               className={`champion aspect-square border-2 border-${champion.cost}cost rounded relative ${champion.cost + ' cost' !== selectedCost ? "hidden " : ""}${champion.selected === true ? "champ-selected ": ""}cursor-pointer hover-effect text-${champion.cost}cost`}
               onClick={() => handleChampionSelection(index)}
+              title={champion.name}
             >
               <div className="w-full h-full relative block rounded overflow-hidden">
                 <img 

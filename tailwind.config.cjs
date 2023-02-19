@@ -9,6 +9,8 @@ module.exports = {
 		"border-midnight",
 		"border-silver",
 		"border-gold",
+		"bg-silver",
+		"bg-gold",
 		"border-1cost",
 		"border-2cost",
 		"border-3cost",

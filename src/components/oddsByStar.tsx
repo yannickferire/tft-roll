@@ -46,7 +46,7 @@ const OddsByStar: React.FC<IOddsByStar> = ({ star, champion, selectedLevel, pool
   return (
     <div className="flex flex-col text-center flex-1">
       <span className="mb-4">
-        <span className={`rounded border-2 border-${starColors[star-1]} align-center justify-center px-2 pb-1`}>
+        <span className={`rounded bg-${starColors[star-1]} align-center justify-center px-2 pb-1`}>
           {starArray.map((index) => (
               <StarIcon key={index} size={4} color={starColors[star-1]} />
           ))}
