@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import CopiesNumber from './copiesNumber';
+import OwnedCopies from './ownedCopies';
+import OpponentsCopies from './opponentsCopies';
+import OutOfThePool from './outOfThePool';
 import { championImageURL, currentSet } from '../constants/set';
 import GoldIcon from './icons/goldIcon';
 import OddsByStar from './oddsByStar';
@@ -19,6 +21,7 @@ interface IChampionOdds {
 
 const ChampionOdds: React.FC<IChampionOdds> = ({ champion, selectedLevel, pool, setPool }) => {
   const [ownedCopies, setOwnedCopies] = useState(0);
+  const [opponentsCopies, setOpponentsCopies] = useState(0);
 
   return (
     <>
@@ -33,11 +36,13 @@ const ChampionOdds: React.FC<IChampionOdds> = ({ champion, selectedLevel, pool, 
         <h3 className="mt-1 text-center font-medium">{champion.name}</h3>
       </header>
       <div className="mr-4 flex flex-1 flex-wrap">
-        <CopiesNumber ownedCopies={ownedCopies} setOwnedCopies={setOwnedCopies} />
+        <OwnedCopies champion={champion} ownedCopies={ownedCopies} setOwnedCopies={setOwnedCopies} />
+        <OpponentsCopies champion={champion} opponentsCopies={opponentsCopies} setOpponentsCopies={setOpponentsCopies} />
+        <OutOfThePool champion={champion} />
       </div>
-      <OddsByStar star={1} champion={champion} selectedLevel={selectedLevel} pool={pool} setPool={setPool} ownedCopies={ownedCopies} />
-      <OddsByStar star={2} champion={champion} selectedLevel={selectedLevel} pool={pool} setPool={setPool} ownedCopies={ownedCopies} />
-      <OddsByStar star={3} champion={champion} selectedLevel={selectedLevel} pool={pool} setPool={setPool} ownedCopies={ownedCopies} />
+      <OddsByStar star={1} champion={champion} selectedLevel={selectedLevel} pool={pool} setPool={setPool} ownedCopies={ownedCopies} opponentsCopies={opponentsCopies} />
+      <OddsByStar star={2} champion={champion} selectedLevel={selectedLevel} pool={pool} setPool={setPool} ownedCopies={ownedCopies}opponentsCopies={opponentsCopies} />
+      <OddsByStar star={3} champion={champion} selectedLevel={selectedLevel} pool={pool} setPool={setPool} ownedCopies={ownedCopies}opponentsCopies={opponentsCopies} />
     </>
   )
 }

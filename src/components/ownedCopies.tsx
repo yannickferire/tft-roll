@@ -1,12 +1,15 @@
-interface ICopiesNumber {
+interface IOwnedCopies {
+  champion: {
+    name: string,
+  }
   ownedCopies: number;
   setOwnedCopies: (copies: number) => void;
 }
 
-const CopiesNumber: React.FC<ICopiesNumber> = ({ ownedCopies, setOwnedCopies }) => {
+const OwnedCopies: React.FC<IOwnedCopies> = ({ champion, ownedCopies, setOwnedCopies }) => {
   return (
     <div className="inline-block w-full bg-crema rounded">
-      <h4 className="text-sm mb-1">Copies owned</h4>
+      <h4 className="text-sm mb-1">Your <strong className="font-medium">{champion.name}</strong></h4>
       <div className="flex text-lg w-full justify-between mb-2">
         <button 
           onClick={() => { setOwnedCopies(ownedCopies - 1)}}
@@ -24,4 +27,4 @@ const CopiesNumber: React.FC<ICopiesNumber> = ({ ownedCopies, setOwnedCopies }) 
   )
 }
 
-export default CopiesNumber;
+export default OwnedCopies;

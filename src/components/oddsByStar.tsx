@@ -19,22 +19,24 @@ interface IOddsByStar {
   pool: {[cost: string]: number};
   setPool: (cost: string) => void;
   ownedCopies: number;
+  opponentsCopies: number
 }
 
-const OddsByStar: React.FC<IOddsByStar> = ({ star, champion, selectedLevel, pool, setPool, ownedCopies }) => {
+const OddsByStar: React.FC<IOddsByStar> = ({ star, champion, selectedLevel, pool, setPool, ownedCopies, opponentsCopies }) => {
   const [championCopies, setChampionCopies] = useState(numberOfCopiesByCost[champion.cost + " cost"]);
 
   const starColors = ['midnight', 'silver', 'gold'];
   const starArray = Array.from({ length: star }, (_, index) => index + 1);
   const copiesNeeded = numberOfCopiesForTier[star+' star'] - ownedCopies;
 
-
   const championOfThisCostPerRoll = (rollingChancesByLevel['level ' + selectedLevel][champion.cost + ' cost']) * championsPerRoll / 100;
   const rollsNeeded = (copiesNeeded: number) => {
     let championCostPool = pool[champion.cost + " cost"];
     let numberOfRolls = 0;
     for (let i = ownedCopies; i < copiesNeeded + ownedCopies; i++) {
-      let goodChampionOdds = ((championCopies - i) / (championCostPool - i)) * 100;
+      let championRemainingInPool = championCopies - i - opponentsCopies;
+      let championCostRemainingInPool = championCostPool - i - opponentsCopies;
+      let goodChampionOdds = (championRemainingInPool / championCostRemainingInPool) * 100;
       numberOfRolls += (100 / goodChampionOdds) / championOfThisCostPerRoll;
     }
     return Math.ceil(numberOfRolls);
@@ -55,7 +57,8 @@ const OddsByStar: React.FC<IOddsByStar> = ({ star, champion, selectedLevel, pool
       {copiesNeeded > 0 ? (
         <>
           { // If there is 0% chance of getting a champion of this cost per roll, display infinity sign
-            championOfThisCostPerRoll !== 0 ? (
+            // & if there is no enough copies of the champion in the pool, display infinity sign
+            championOfThisCostPerRoll !== 0 && (copiesNeeded < (championCopies - ownedCopies - opponentsCopies)) ? (
             <>
               <span>{ rollsNeeded(copiesNeeded) } <RollIcon color="midnight" /> = <GoldIcon color="midnight" /> { goldsNeeded(rollsNeeded(copiesNeeded)) }</span>
               <span>{ copiesNeeded } <CopyIcon color="midnight" /> = <GoldIcon color="midnight" /> {champion.cost * copiesNeeded }</span>
