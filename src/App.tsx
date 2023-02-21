@@ -7,6 +7,7 @@ import LevelSelector from './components/levelSelector';
 import ResetButton from './components/resetButton';
 import ChampionsSelector from './components/championsSelector';
 import ChampionsOdds from './components/championsOdds';
+import RollingOdds from './components/RollingOdds';
 import { baseCost, baseLevel } from './constants/constants';
 
 const App: React.FC = () => {
@@ -33,6 +34,7 @@ const App: React.FC = () => {
             <LevelSelector selectedLevel={selectedLevel} setSelectedLevel={setSelectedLevel} /> 
             <ResetButton selectedLevel={selectedLevel} setSelectedLevel={setSelectedLevel} champs={champs} setChamps={setChamps} />
           </div>
+          <RollingOdds selectedLevel={selectedLevel} selectedCost={selectedCost}  />
           <ChampionsSelector 
             champs={champs} 
             setChamps={setChamps}
