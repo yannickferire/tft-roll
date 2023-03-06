@@ -17,18 +17,33 @@ interface IChampionOdds {
   selectedLevel: number;
   pool: {[cost: string]: number};
   setPool: (cost: string) => void;
+  champs: any[];
+  setChamps: (champions: any[]) => void;
 }
 
-const ChampionOdds: React.FC<IChampionOdds> = ({ champion, selectedLevel, pool, setPool }) => {
+const ChampionOdds: React.FC<IChampionOdds> = ({ champion, selectedLevel, pool, setPool, champs, setChamps }) => {
   const [ownedCopies, setOwnedCopies] = useState(0);
   const [opponentsCopies, setOpponentsCopies] = useState(0);
+
+  const handleRemoveChampion = (name: string) => {
+    setChamps(
+      champs.map((champion) => {
+        if (champion.name === name) {
+          return { ...champion, selected: false, position: 0 };
+        } else {
+          return { ...champion };
+        }
+      })
+    )
+  }
 
   return (
     <>
       <header className="flex flex-col mr-4">
         <div className="relative">
           <img 
-            className={`w-24 mb-1 h-full border-4 border-${champion.cost}cost rounded`}
+            onClick={() => handleRemoveChampion(champion.name)}
+            className={`w-24 mb-1 h-full border-4 border-${champion.cost}cost rounded cursor-pointer`}
             src={`${championImageURL}/${champion.apiName.toLowerCase()}_square.tft_set${currentSet}.png`} 
             alt={champion.name} />
           <p className={`absolute text-crema text-sm px-2 pb-0.5 text-center rounded bottom-0 bg-${champion.cost}cost`}> <GoldIcon color="crema" size={2.5} /> {champion.cost}</p>

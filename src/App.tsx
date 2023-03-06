@@ -44,7 +44,7 @@ const App: React.FC = () => {
           />
         </aside>
         
-        <ChampionsOdds selectedLevel={selectedLevel} champs={champs}  />
+        <ChampionsOdds selectedLevel={selectedLevel} champs={champs} setChamps={setChamps}  />
       </div>
     </div>
   )

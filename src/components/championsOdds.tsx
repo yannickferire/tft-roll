@@ -4,10 +4,11 @@ import { numberOfChampionsByCost, numberOfCopiesByCost } from '../constants/cham
 
 interface IChampionsOdds {
   champs: any[];
+  setChamps: (champions: any[]) => void;
   selectedLevel: number;
 }
 
-const ChampionsOdds: React.FC<IChampionsOdds> = ({ champs, selectedLevel }) => {
+const ChampionsOdds: React.FC<IChampionsOdds> = ({ champs, setChamps, selectedLevel }) => {
   const getPool = () => {
     const newPool: any = [];
     Object.keys(numberOfChampionsByCost).forEach((cost) => {
@@ -27,7 +28,7 @@ const ChampionsOdds: React.FC<IChampionsOdds> = ({ champs, selectedLevel }) => {
         {selectedChampions.map((champion, index) => {
           return (
               <li key={index} className="flex flex-wrap border-b border-dashed py-6 content-center last:border-0">
-                <ChampionOdds champion={champion} selectedLevel={selectedLevel} pool={pool} setPool={setPool} />
+                <ChampionOdds champs={champs} setChamps={setChamps} champion={champion} selectedLevel={selectedLevel} pool={pool} setPool={setPool} />
               </li>
         )})}
         </ul>
