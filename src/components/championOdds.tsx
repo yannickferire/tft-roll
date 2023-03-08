@@ -9,6 +9,7 @@ import OddsByStar from './oddsByStar';
 interface IChampionOdds {
   champion: {
     apiName: string,
+    image: string,
     cost: number,
     name: string,
     traits: string[],
@@ -40,13 +41,15 @@ const ChampionOdds: React.FC<IChampionOdds> = ({ champion, selectedLevel, pool, 
   return (
     <>
       <header className="flex flex-col mr-4">
-        <div className="relative">
-          <img 
-            onClick={() => handleRemoveChampion(champion.name)}
-            className={`w-24 mb-1 h-full border-4 border-${champion.cost}cost rounded cursor-pointer`}
-            src={`${championImageURL}/${champion.apiName.toLowerCase()}_square.tft_set${currentSet}.png`} 
-            alt={champion.name} />
-          <p className={`absolute text-crema text-sm px-2 pb-0.5 text-center rounded bottom-0 bg-${champion.cost}cost`}> <GoldIcon color="crema" size={2.5} /> {champion.cost}</p>
+        <div 
+          onClick={() => handleRemoveChampion(champion.name)}
+          className="relative bg-midnight rounded group cursor-pointer">
+            <img 
+              className={`w-24 mb-1 h-full border-4 border-${champion.cost}cost rounded group-hover:opacity-25 transition duration-500`}
+              src={champion.image} 
+              alt={champion.name} />
+              <span className={`group-hover:scale-100 group-hover:opacity-100 transition duration-500 scale-75 origin-center opacity-0 absolute -mt-1 ml-1 text-6xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-45 text-${champion.cost}cost`}>+</span>
+          <p className={`absolute text-crema text-sm px-2 pb-0.5 text-center rounded bottom-0 bg-${champion.cost}cost group-hover:opacity-25 transition duration-500`}> <GoldIcon color="crema" size={2.5} /> {champion.cost}</p>
         </div>
         <h3 className="mt-1 text-center font-medium">{champion.name}</h3>
       </header>

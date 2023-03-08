@@ -58,6 +58,7 @@ const ChampionsSelector: React.FC<IChampionsSelector> = ({ champs, setChamps, se
       {championsLoaded === true ? (
         <ul className="grid grid-cols-5 gap-4 p-4 bg-midday">
           {champs.map((champion, index) => (
+            console.log(champion),
             <li 
               key={index} 
               className={`champion aspect-square border-2 border-${champion.cost}cost rounded relative ${champion.cost + ' cost' !== selectedCost ? "hidden " : ""}${champion.selected === true ? "champ-selected ": ""}cursor-pointer hover-effect text-${champion.cost}cost`}
@@ -67,7 +68,7 @@ const ChampionsSelector: React.FC<IChampionsSelector> = ({ champs, setChamps, se
               <div className="w-full h-full relative block rounded overflow-hidden">
                 <img 
                 className={`w-20 -left-6 max-w-none absolute z-10`}
-                src={`${championImageURL}/${champion.apiName.toLowerCase()}_square.tft_set${currentSet}.png`} 
+                src={champion.image} 
                 alt={champion.name} />
               </div>
             </li>
