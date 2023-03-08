@@ -6,9 +6,10 @@ interface IChampionsOdds {
   champs: any[];
   setChamps: (champions: any[]) => void;
   selectedLevel: number;
+  traits: any[];
 }
 
-const ChampionsOdds: React.FC<IChampionsOdds> = ({ champs, setChamps, selectedLevel }) => {
+const ChampionsOdds: React.FC<IChampionsOdds> = ({ champs, setChamps, selectedLevel, traits }) => {
   const getPool = () => {
     const newPool: any = [];
     Object.keys(numberOfChampionsByCost).forEach((cost) => {
@@ -28,7 +29,7 @@ const ChampionsOdds: React.FC<IChampionsOdds> = ({ champs, setChamps, selectedLe
         {selectedChampions.map((champion, index) => {
           return (
               <li key={index} className="flex flex-wrap border-b border-dashed py-6 content-center last:border-0">
-                <ChampionOdds champs={champs} setChamps={setChamps} champion={champion} selectedLevel={selectedLevel} pool={pool} setPool={setPool} />
+                <ChampionOdds champs={champs} setChamps={setChamps} champion={champion} selectedLevel={selectedLevel} pool={pool} setPool={setPool} traits={traits} />
               </li>
         )})}
         </ul>

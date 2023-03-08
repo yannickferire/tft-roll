@@ -12,15 +12,19 @@ import { baseCost, baseLevel } from './constants/constants';
 
 const App: React.FC = () => {
   const [champs, setChamps] = useState<any[]>([]);
+  const [traits, setTraits] = useState<any[]>([]);
   const [selectedCost, setSelectedCost] = useState<string>(baseCost + " cost");
   const [selectedLevel, setSelectedLevel] = useState<number>(baseLevel);
   const [championsLoaded, setchampionsLoaded] = useState(false);
 
   useEffect(() => {
     (async () => {
-      const champions = await fetchChampions();
+      const data = await fetchChampions();
+      const champions = data.champions;
       setChamps(champions);
       setchampionsLoaded(true);
+      const traits = data.traits;
+      setTraits(traits);
     })();
   }, []);
 
@@ -44,7 +48,7 @@ const App: React.FC = () => {
           />
         </aside>
         
-        <ChampionsOdds selectedLevel={selectedLevel} champs={champs} setChamps={setChamps}  />
+        <ChampionsOdds selectedLevel={selectedLevel} champs={champs} setChamps={setChamps} traits={traits} />
       </div>
     </div>
   )

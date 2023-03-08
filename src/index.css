@@ -46,3 +46,8 @@ svg { vertical-align: baseline; }
 .champion:hover:after { top: -5px; left: 1px; }
 .champ-selected:after { width: calc(100% + 10px); height: calc(100% + 10px); top: -5px; left: -5px; }
 .champ-selected:hover:after { top: -5px; left: -5px; }
+
+.hex { clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
+.triangle { clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
+.hex img,
+.triangle img { filter: brightness(0) invert(1); }

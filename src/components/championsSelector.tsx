@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { possibleCost } from '../constants/cost';
-import { championImageURL, currentSet } from '../constants/set';
 import { numberOfChampionsByCost } from '../constants/champions';
 import GoldIcon from './icons/goldIcon';
 
@@ -58,7 +57,6 @@ const ChampionsSelector: React.FC<IChampionsSelector> = ({ champs, setChamps, se
       {championsLoaded === true ? (
         <ul className="grid grid-cols-5 gap-4 p-4 bg-midday">
           {champs.map((champion, index) => (
-            console.log(champion),
             <li 
               key={index} 
               className={`champion aspect-square border-2 border-${champion.cost}cost rounded relative ${champion.cost + ' cost' !== selectedCost ? "hidden " : ""}${champion.selected === true ? "champ-selected ": ""}cursor-pointer hover-effect text-${champion.cost}cost`}
