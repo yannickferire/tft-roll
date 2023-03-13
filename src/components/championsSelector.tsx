@@ -55,11 +55,11 @@ const ChampionsSelector: React.FC<IChampionsSelector> = ({ champs, setChamps, se
         }
       </div>
       {championsLoaded === true ? (
-        <ul className="grid grid-cols-5 gap-4 p-4 bg-midday">
+        <ul className="grid grid-cols-5 items-center gap-4 p-4 bg-midday">
           {champs.map((champion, index) => (
             <li 
               key={index} 
-              className={`champion aspect-square border-2 border-${champion.cost}cost rounded relative ${champion.cost + ' cost' !== selectedCost ? "hidden " : ""}${champion.selected === true ? "champ-selected ": ""}cursor-pointer hover-effect text-${champion.cost}cost`}
+              className={`max-w-[57px] left-1/2 transform -translate-x-1/2 champion aspect-square border-2 border-${champion.cost}cost rounded relative ${champion.cost + ' cost' !== selectedCost ? "hidden " : ""}${champion.selected === true ? "champ-selected ": ""}cursor-pointer hover-effect text-${champion.cost}cost`}
               onClick={() => handleChampionSelection(index)}
               title={champion.name}
             >
