@@ -7,7 +7,7 @@ import LevelSelector from './components/levelSelector';
 import ResetButton from './components/resetButton';
 import ChampionsSelector from './components/championsSelector';
 import ChampionsOdds from './components/championsOdds';
-import RollingOdds from './components/RollingOdds';
+import RollingOdds from './components/rollingOdds';
 import { baseCost, baseLevel } from './constants/constants';
 
 const App: React.FC = () => {

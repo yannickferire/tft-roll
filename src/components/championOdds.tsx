@@ -25,6 +25,7 @@ interface IChampionOdds {
 const ChampionOdds: React.FC<IChampionOdds> = ({ champion, selectedLevel, pool, setPool, champs, setChamps, traits }) => {
   const [ownedCopies, setOwnedCopies] = useState(0);
   const [opponentsCopies, setOpponentsCopies] = useState(0);
+  const [sameCostCopies, setSameCostCopies] = useState(0);
 
   const handleRemoveChampion = (name: string) => {
     setChamps(
@@ -68,11 +69,11 @@ const ChampionOdds: React.FC<IChampionOdds> = ({ champion, selectedLevel, pool, 
       <div className="mr-4 flex flex-1 flex-wrap">
         <OwnedCopies champion={champion} ownedCopies={ownedCopies} setOwnedCopies={setOwnedCopies} />
         <OpponentsCopies champion={champion} opponentsCopies={opponentsCopies} setOpponentsCopies={setOpponentsCopies} />
-        <OutOfThePool champion={champion} />
+        <OutOfThePool champion={champion} sameCostCopies={sameCostCopies} setSameCostCopies={setSameCostCopies} pool={pool} />
       </div>
-      <OddsByStar star={1} champion={champion} selectedLevel={selectedLevel} pool={pool} setPool={setPool} ownedCopies={ownedCopies} opponentsCopies={opponentsCopies} />
-      <OddsByStar star={2} champion={champion} selectedLevel={selectedLevel} pool={pool} setPool={setPool} ownedCopies={ownedCopies}opponentsCopies={opponentsCopies} />
-      <OddsByStar star={3} champion={champion} selectedLevel={selectedLevel} pool={pool} setPool={setPool} ownedCopies={ownedCopies}opponentsCopies={opponentsCopies} />
+      <OddsByStar star={1} champion={champion} selectedLevel={selectedLevel} pool={pool} ownedCopies={ownedCopies} opponentsCopies={opponentsCopies} sameCostCopies={sameCostCopies} />
+      <OddsByStar star={2} champion={champion} selectedLevel={selectedLevel} pool={pool} ownedCopies={ownedCopies}opponentsCopies={opponentsCopies} sameCostCopies={sameCostCopies} />
+      <OddsByStar star={3} champion={champion} selectedLevel={selectedLevel} pool={pool} ownedCopies={ownedCopies}opponentsCopies={opponentsCopies} sameCostCopies={sameCostCopies} />
     </>
   )
 }

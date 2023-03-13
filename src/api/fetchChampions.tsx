@@ -16,12 +16,10 @@ export async function fetchChampions() {
   }));
   const dataTraits = data.sets[currentSet].traits.map((trait: any) => ({
     ...trait,
-    // image is trait.icon in lowercase without .tex extension
     image: `${gameURL}/${trait.icon.toLowerCase().replace(".tex", ".png")}`
   }));
   
   const enhancedData = { champions: withImageChampions, traits: dataTraits };
-  console.log(enhancedData);
 
   return enhancedData;
 }

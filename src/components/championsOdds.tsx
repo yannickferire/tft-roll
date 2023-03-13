@@ -13,7 +13,7 @@ const ChampionsOdds: React.FC<IChampionsOdds> = ({ champs, setChamps, selectedLe
   const getPool = () => {
     const newPool: any = [];
     Object.keys(numberOfChampionsByCost).forEach((cost) => {
-        newPool[cost] = numberOfChampionsByCost[cost] * numberOfCopiesByCost[cost];
+      newPool[cost] = numberOfChampionsByCost[cost] * numberOfCopiesByCost[cost];
     });
     return newPool;
   }

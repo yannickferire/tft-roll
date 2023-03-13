@@ -17,12 +17,12 @@ interface IOddsByStar {
   }
   selectedLevel: number;
   pool: {[cost: string]: number};
-  setPool: (cost: string) => void;
   ownedCopies: number;
   opponentsCopies: number
+  sameCostCopies: number;
 }
 
-const OddsByStar: React.FC<IOddsByStar> = ({ star, champion, selectedLevel, pool, setPool, ownedCopies, opponentsCopies }) => {
+const OddsByStar: React.FC<IOddsByStar> = ({ star, champion, selectedLevel, pool, ownedCopies, opponentsCopies, sameCostCopies }) => {
   const [championCopies, setChampionCopies] = useState(numberOfCopiesByCost[champion.cost + " cost"]);
 
   const starColors = ['midnight', 'silver', 'gold'];
@@ -35,8 +35,8 @@ const OddsByStar: React.FC<IOddsByStar> = ({ star, champion, selectedLevel, pool
     let numberOfRolls = 0;
     for (let i = ownedCopies; i < copiesNeeded + ownedCopies; i++) {
       let championRemainingInPool = championCopies - i - opponentsCopies;
-      let championCostRemainingInPool = championCostPool - i - opponentsCopies;
-      let goodChampionOdds = (championRemainingInPool / championCostRemainingInPool) * 100;
+      let championSameCostRemainingInPool = championCostPool - i - opponentsCopies - sameCostCopies;
+      let goodChampionOdds = (championRemainingInPool / championSameCostRemainingInPool) * 100;
       numberOfRolls += (100 / goodChampionOdds) / championOfThisCostPerRoll;
     }
     return Math.ceil(numberOfRolls);
