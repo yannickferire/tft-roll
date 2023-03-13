@@ -23,13 +23,13 @@ const ChampionsOdds: React.FC<IChampionsOdds> = ({ champs, setChamps, selectedLe
   selectedChampions.sort((a, b) => b.position - a.position);
 
   return (
-    <main className="flex-1 ml-6 px-4 bg-crema text-midnight relative ticket">
+    <main className="flex-1 ml-6 mb-24 px-4 bg-crema text-midnight relative ticket">
       {selectedChampions.length > 0 ? (
         <ul>
         {selectedChampions.map((champion, index) => {
           return (
               <li key={index} className="flex flex-wrap border-b border-dashed py-6 content-center last:border-0">
-                <ChampionOdds champs={champs} setChamps={setChamps} champion={champion} selectedLevel={selectedLevel} pool={pool} setPool={setPool} traits={traits} />
+                <ChampionOdds champs={champs} setChamps={setChamps} champion={champion} selectedLevel={selectedLevel} pool={pool} traits={traits} />
               </li>
         )})}
         </ul>

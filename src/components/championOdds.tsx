@@ -16,13 +16,12 @@ interface IChampionOdds {
   }
   selectedLevel: number;
   pool: {[cost: string]: number};
-  setPool: (cost: string) => void;
   champs: any[];
   setChamps: (champions: any[]) => void;
   traits: any[];
 }
 
-const ChampionOdds: React.FC<IChampionOdds> = ({ champion, selectedLevel, pool, setPool, champs, setChamps, traits }) => {
+const ChampionOdds: React.FC<IChampionOdds> = ({ champion, selectedLevel, pool, champs, setChamps, traits }) => {
   const [ownedCopies, setOwnedCopies] = useState(0);
   const [opponentsCopies, setOpponentsCopies] = useState(0);
   const [sameCostCopies, setSameCostCopies] = useState(0);
@@ -66,7 +65,7 @@ const ChampionOdds: React.FC<IChampionOdds> = ({ champion, selectedLevel, pool, 
           })}
         </ul>
       </header>
-      <div className="mr-4 flex flex-1 flex-wrap">
+      <div className="mr-4 flex flex-1 flex-wrap gap-1">
         <OwnedCopies champion={champion} ownedCopies={ownedCopies} setOwnedCopies={setOwnedCopies} />
         <OpponentsCopies champion={champion} opponentsCopies={opponentsCopies} setOpponentsCopies={setOpponentsCopies} />
         <OutOfThePool champion={champion} sameCostCopies={sameCostCopies} setSameCostCopies={setSameCostCopies} pool={pool} />
