@@ -25,7 +25,7 @@ interface IOddsByStar {
 const OddsByStar: React.FC<IOddsByStar> = ({ star, champion, selectedLevel, pool, ownedCopies, opponentsCopies, sameCostCopies }) => {
   const [championCopies, setChampionCopies] = useState(numberOfCopiesByCost[champion.cost + " cost"]);
 
-  const starColors = ['midnight', 'silver', 'gold'];
+  const starColors = ['bronze', 'silver', 'gold'];
   const starArray = Array.from({ length: star }, (_, index) => index + 1);
   const copiesNeeded = numberOfCopiesForTier[star+' star'] - ownedCopies;
 
