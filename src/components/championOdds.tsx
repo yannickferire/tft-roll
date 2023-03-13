@@ -26,6 +26,10 @@ const ChampionOdds: React.FC<IChampionOdds> = ({ champion, selectedLevel, pool, 
   const [opponentsCopies, setOpponentsCopies] = useState(0);
   const [sameCostCopies, setSameCostCopies] = useState(0);
 
+  // randomized emojis for success (different for each tier)
+  const emojis = ['👌', '🤘', '✌️', '👊', '🤝', '👍', '🚀', '🥇', '🎉', '💯', '😎', '🥳', '🔥', '✨', '🙉', '🎯'];
+  const [randomizedEmojis, setRandomizedEmojis] = useState(() => [...new Set(Array.from({length: 3}, () => emojis[Math.floor(Math.random() * emojis.length)]))]);
+
   const handleRemoveChampion = (name: string) => {
     setChamps(
       champs.map((champion) => {
@@ -70,9 +74,9 @@ const ChampionOdds: React.FC<IChampionOdds> = ({ champion, selectedLevel, pool, 
         <OpponentsCopies champion={champion} opponentsCopies={opponentsCopies} setOpponentsCopies={setOpponentsCopies} />
         <OutOfThePool champion={champion} sameCostCopies={sameCostCopies} setSameCostCopies={setSameCostCopies} pool={pool} />
       </div>
-      <OddsByStar star={1} champion={champion} selectedLevel={selectedLevel} pool={pool} ownedCopies={ownedCopies} opponentsCopies={opponentsCopies} sameCostCopies={sameCostCopies} />
-      <OddsByStar star={2} champion={champion} selectedLevel={selectedLevel} pool={pool} ownedCopies={ownedCopies}opponentsCopies={opponentsCopies} sameCostCopies={sameCostCopies} />
-      <OddsByStar star={3} champion={champion} selectedLevel={selectedLevel} pool={pool} ownedCopies={ownedCopies}opponentsCopies={opponentsCopies} sameCostCopies={sameCostCopies} />
+      <OddsByStar star={1} champion={champion} selectedLevel={selectedLevel} pool={pool} ownedCopies={ownedCopies} opponentsCopies={opponentsCopies} sameCostCopies={sameCostCopies} emoji={randomizedEmojis[0]} />
+      <OddsByStar star={2} champion={champion} selectedLevel={selectedLevel} pool={pool} ownedCopies={ownedCopies}opponentsCopies={opponentsCopies} sameCostCopies={sameCostCopies} emoji={randomizedEmojis[1]} />
+      <OddsByStar star={3} champion={champion} selectedLevel={selectedLevel} pool={pool} ownedCopies={ownedCopies}opponentsCopies={opponentsCopies} sameCostCopies={sameCostCopies} emoji={randomizedEmojis[2]} />
     </>
   )
 }

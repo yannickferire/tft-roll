@@ -20,9 +20,10 @@ interface IOddsByStar {
   ownedCopies: number;
   opponentsCopies: number
   sameCostCopies: number;
+  emoji: string;
 }
 
-const OddsByStar: React.FC<IOddsByStar> = ({ star, champion, selectedLevel, pool, ownedCopies, opponentsCopies, sameCostCopies }) => {
+const OddsByStar: React.FC<IOddsByStar> = ({ star, champion, selectedLevel, pool, ownedCopies, opponentsCopies, sameCostCopies, emoji }) => {
   const [championCopies, setChampionCopies] = useState(numberOfCopiesByCost[champion.cost + " cost"]);
 
   const starColors = ['bronze', 'silver', 'gold'];
@@ -73,7 +74,7 @@ const OddsByStar: React.FC<IOddsByStar> = ({ star, champion, selectedLevel, pool
           )}
           
         </>
-      ): <span>GG</span>
+      ): <span className="py-4 text-3xl">{emoji}</span>
       }
     </div>
   )
