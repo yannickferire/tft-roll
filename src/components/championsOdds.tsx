@@ -26,9 +26,9 @@ const ChampionsOdds: React.FC<IChampionsOdds> = ({ champs, setChamps, selectedLe
     <main className="flex-1 ml-6 mb-24 px-4 bg-crema text-midnight relative ticket">
       {selectedChampions.length > 0 ? (
         <ul>
-        {selectedChampions.map((champion, index) => {
+        {selectedChampions.map((champion) => {
           return (
-              <li key={index} className="flex flex-wrap border-b border-dashed py-6 content-center last:border-0">
+              <li key={champion.name} className="flex flex-wrap border-b border-dashed py-6 content-center last:border-0">
                 <ChampionOdds champs={champs} setChamps={setChamps} champion={champion} selectedLevel={selectedLevel} pool={pool} traits={traits} />
               </li>
         )})}
