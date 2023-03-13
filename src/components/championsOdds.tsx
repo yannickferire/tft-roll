@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import ChampionOdds from './championOdds';
 import { numberOfChampionsByCost, numberOfCopiesByCost } from '../constants/champions';
+import GoldIcon from './icons/goldIcon';
 
 interface IChampionsOdds {
   champs: any[];
@@ -34,7 +35,7 @@ const ChampionsOdds: React.FC<IChampionsOdds> = ({ champs, setChamps, selectedLe
         )})}
         </ul>
         ):
-        <p className="p-10 text-center"><strong>Choose one or multiple champions</strong> to see <br/>how much average gold you will need to hit them. <br/>Good Luck, Have Fun!</p>
+        <p className="p-10 text-xl text-center"><strong>Choose one or multiple champions</strong> to see <br/>how much average <span className="mr-0.5"><GoldIcon color="midnight" size={4} /></span>gold you will need to hit them. <br/><br />Good Luck, Have Fun!</p>
       }
     </main>
   )
