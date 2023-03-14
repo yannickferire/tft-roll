@@ -61,8 +61,8 @@ const OddsByStar: React.FC<IOddsByStar> = ({ star, champion, selectedLevel, pool
             // & if there is no enough copies of the champion in the pool, display infinity sign
             championOfThisCostPerRoll !== 0 && (copiesNeeded <= (championCopies - ownedCopies - opponentsCopies)) ? (
             <>
-              <span>{ rollsNeeded(copiesNeeded) } <RollIcon color="midnight" /><span className="hidden sm:inline-block"> = <GoldIcon color="midnight" /> { goldsNeeded(rollsNeeded(copiesNeeded)) }</span></span>
-              <span>{ copiesNeeded } <CopyIcon color="midnight" /><span className="hidden sm:inline-block"> = <GoldIcon color="midnight" /> {champion.cost * copiesNeeded }</span></span>
+              <span>{ rollsNeeded(copiesNeeded) } <RollIcon color="midnight" /><span className="hidden sm:inline"> = <GoldIcon color="midnight" /> { goldsNeeded(rollsNeeded(copiesNeeded)) }</span></span>
+              <span>{ copiesNeeded } <CopyIcon color="midnight" /><span className="hidden sm:inline"> = <GoldIcon color="midnight" /> {champion.cost * copiesNeeded }</span></span>
               <span className="mt-2 text-xl md:text-2xl font-medium"><GoldIcon size={4} color="midnight" /> {goldsNeeded(rollsNeeded(copiesNeeded)) + champion.cost * copiesNeeded}</span>
             </>
           ):(
