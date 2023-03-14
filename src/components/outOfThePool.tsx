@@ -13,7 +13,7 @@ const OutOfThePool: React.FC<IOutOfThePool> = ({ champion,sameCostCopies, setSam
 
   return (
     <div className="inline-block w-full bg-crema rounded">
-      <h4 className="text-sm mb-2 leading-tight">Others <strong className={`text-${champion.cost}cost font-medium`}>{champion.cost} cost</strong> out of the pool <small className="block opacity-60">(approximatively)</small></h4>
+      <h4 className="sm:h-10 lg:h-auto text-sm mb-2 leading-tight">Others <strong className={`text-${champion.cost}cost font-medium`}>{champion.cost} cost</strong> out of the pool <small className="inline-block opacity-60">(approximatively)</small></h4>
       <div className="flex text-lg w-full justify-between mb-2">
         <button 
           onClick={() => { setSameCostCopies(sameCostCopies - 3)}}

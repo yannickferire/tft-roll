@@ -10,7 +10,7 @@ interface IOwnedCopies {
 const OwnedCopies: React.FC<IOwnedCopies> = ({ champion, ownedCopies, setOwnedCopies }) => {
   return (
     <div className="inline-block w-full bg-crema rounded">
-      <h4 className="text-sm mb-1">Your <strong className="font-medium">{champion.name}</strong> <CopyIcon color="midnight" /></h4>
+      <h4 className="sm:h-10 lg:h-auto text-sm mb-2">Your <strong className="font-medium">{champion.name}</strong> <CopyIcon color="midnight" /></h4>
       <div className="flex text-lg w-full justify-between mb-2">
         <button 
           onClick={() => { setOwnedCopies(ownedCopies - 1)}}

@@ -33,7 +33,7 @@ const App: React.FC = () => {
       <h1 className="text-4xl font-extrabold mb-12"><img className="logo" src={logo} width="160" alt="tft odds logo" /></h1>
 
       <div className="flex items-start flex-col md:flex-row">
-        <aside className="flex flex-col w-full md:w-96 mb-6 md:mb-0">
+        <aside className="flex flex-col w-full md:w-2/6 xl:w-96 mb-6 md:mb-0">
           <div className="flex justify-between">
             <LevelSelector selectedLevel={selectedLevel} setSelectedLevel={setSelectedLevel} /> 
             <ResetButton selectedLevel={selectedLevel} setSelectedLevel={setSelectedLevel} champs={champs} setChamps={setChamps} />

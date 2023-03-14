@@ -33,6 +33,12 @@ module.exports = {
 		"w-4",
 	],
 	theme: {
+		screens: {
+			sm: "600px",
+			md: "820px",
+			lg: "1110px",
+			xl: "1280px",
+		},
 		container: {
 			center: true,
 		},

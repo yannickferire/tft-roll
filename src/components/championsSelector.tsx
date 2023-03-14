@@ -46,7 +46,7 @@ const ChampionsSelector: React.FC<IChampionsSelector> = ({ champs, setChamps, se
                 e.preventDefault;
                 setSelectedCost(e.currentTarget.innerText + ' cost');
               }} 
-              className={`${(selectedCost == cost + ' cost')?'bg-midday':''} h-12 px-5 py-1 flex flex-1 content-center justify-center hover:bg-midday`}>
+              className={`${(selectedCost == cost + ' cost')?'bg-midday':''} h-12 py-1 flex flex-1 content-center justify-center hover:bg-midday`}>
               <span className="my-auto flex">
                 <GoldIcon color="crema" /> <span className="ml-2">{cost}</span>
               </span>
@@ -55,7 +55,7 @@ const ChampionsSelector: React.FC<IChampionsSelector> = ({ champs, setChamps, se
         }
       </div>
       {championsLoaded === true ? (
-        <ul className="grid grid-cols-5 items-center gap-4 p-4 bg-midday">
+        <ul className="grid grid-cols-5 items-center gap-4 md:grid-cols-4 md:gap-2 lg:gap-4 lg:grid-cols-5 p-4 bg-midday">
           {champs.map((champion, index) => (
             <li 
               key={index} 
