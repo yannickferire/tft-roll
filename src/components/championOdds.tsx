@@ -4,6 +4,7 @@ import OpponentsCopies from './opponentsCopies';
 import OutOfThePool from './outOfThePool';
 import GoldIcon from './icons/goldIcon';
 import OddsByStar from './oddsByStar';
+import { numberOfCopiesForTier } from '../constants/champions';
 
 interface IChampionOdds {
   champion: {
@@ -28,19 +29,31 @@ const ChampionOdds: React.FC<IChampionOdds> = ({ champion, selectedLevel, pool, 
 
   // randomized emojis for success (different for each tier)
   const emojis = ['👌', '🤘', '✌️', '👊', '🤝', '👍', '🚀', '🥇', '🎉', '💯', '😎', '🥳', '🔥', '✨', '🙉', '🎯'];
-  const [randomizedEmojis, setRandomizedEmojis] = useState(() => [...new Set(Array.from({length: 3}, () => emojis[Math.floor(Math.random() * emojis.length)]))]);
+  const [randomizedEmojis, setRandomizedEmojis] = useState(() => {
+    const randomEmojis : any[] = [];
+    for (let i = 0; i < Object.keys(numberOfCopiesForTier).length; i++) {
+      let randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+      if (randomEmojis.includes(randomEmoji)) {
+        i--;
+        console.log('duplicate emoji: ' + randomEmoji + ' on place ' + i);
+      } else {
+        randomEmojis.push(randomEmoji);
+      }
+    }
+    return randomEmojis;
+  });
 
-  const handleRemoveChampion = (name: string) => {
-    setChamps(
-      champs.map((champion) => {
-        if (champion.name === name) {
-          return { ...champion, selected: false, position: 0 };
-        } else {
-          return { ...champion };
-        }
-      })
-    )
-  }
+  function handleRemoveChampion(name: string) {
+  setChamps(
+    champs.map((champion) => {
+      if (champion.name === name) {
+        return { ...champion, selected: false, position: 0 };
+      } else {
+        return { ...champion };
+      }
+    })
+  );
+}
 
   return (
     <>
@@ -69,12 +82,12 @@ const ChampionOdds: React.FC<IChampionOdds> = ({ champion, selectedLevel, pool, 
           })}
         </ul>
       </header>
-      <div className="order-3 lg:order-2 lg:mr-4 mt-6 lg:mt-0 flex flex-auto md:flex-1 flex-col sm:flex-row lg:flex-wrap gap-4 lg:gap-1 lg:min-w-[165px] w-full">
+      <div className="order-3 lg:order-2 lg:mr-4 mt-6 lg:mt-0 flex flex-1 md:flex-1 flex-col sm:flex-row lg:flex-wrap gap-4 lg:gap-1 lg:min-w-[165px] lg:w-48 lg:flex-none">
         <OwnedCopies champion={champion} ownedCopies={ownedCopies} setOwnedCopies={setOwnedCopies} />
         <OpponentsCopies champion={champion} opponentsCopies={opponentsCopies} setOpponentsCopies={setOpponentsCopies} />
         <OutOfThePool champion={champion} sameCostCopies={sameCostCopies} setSameCostCopies={setSameCostCopies} pool={pool} />
       </div>
-      <div className="order-2 lg:order-3 flex flex-auto">
+      <div className="order-2 lg:order-3 flex flex-auto lg:flex-1">
         <OddsByStar star={1} champion={champion} selectedLevel={selectedLevel} pool={pool} ownedCopies={ownedCopies} opponentsCopies={opponentsCopies} sameCostCopies={sameCostCopies} emoji={randomizedEmojis[0]} />
         <OddsByStar star={2} champion={champion} selectedLevel={selectedLevel} pool={pool} ownedCopies={ownedCopies}opponentsCopies={opponentsCopies} sameCostCopies={sameCostCopies} emoji={randomizedEmojis[1]} />
         <OddsByStar star={3} champion={champion} selectedLevel={selectedLevel} pool={pool} ownedCopies={ownedCopies}opponentsCopies={opponentsCopies} sameCostCopies={sameCostCopies} emoji={randomizedEmojis[2]} />
