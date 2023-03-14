@@ -33,12 +33,7 @@ const ChampionOdds: React.FC<IChampionOdds> = ({ champion, selectedLevel, pool, 
     const randomEmojis : any[] = [];
     for (let i = 0; i < Object.keys(numberOfCopiesForTier).length; i++) {
       let randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-      if (randomEmojis.includes(randomEmoji)) {
-        i--;
-        console.log('duplicate emoji: ' + randomEmoji + ' on place ' + i);
-      } else {
-        randomEmojis.push(randomEmoji);
-      }
+      (randomEmojis.includes(randomEmoji) ? i-- : randomEmojis.push(randomEmoji));
     }
     return randomEmojis;
   });
