@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import './index.css';
-import logo from './assets/tft-odds-logo.svg';
 import { fetchChampions } from './api/fetchChampions';
 import LevelSelector from './components/levelSelector';
 import ResetButton from './components/resetButton';
@@ -8,6 +7,8 @@ import ChampionsSelector from './components/championsSelector';
 import ChampionsOdds from './components/championsOdds';
 import RollingOdds from './components/rollingOdds';
 import { baseCost, baseLevel } from './constants/constants';
+import Header from './components/layout/header';
+import Footer from './components/layout/footer';
 
 const App: React.FC = () => {
   const [champs, setChamps] = useState<any[]>([]);
@@ -28,28 +29,31 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="App w-full xl:container px-5 py-6">
-      <h1 className="text-4xl font-extrabold mb-12"><img className="logo" src={logo} width="160" alt="TFT odds: Set 8.5" /></h1>
+      <div className="App w-full xl:container px-5 py-6 flex flex-col min-h-screen">
+        <Header />
 
-      <div className="flex items-start flex-col md:flex-row">
-        <aside className="flex flex-col w-full md:w-2/6 xl:w-96 mb-6 md:mb-0">
-          <div className="flex justify-between">
-            <LevelSelector selectedLevel={selectedLevel} setSelectedLevel={setSelectedLevel} /> 
-            <ResetButton selectedLevel={selectedLevel} setSelectedLevel={setSelectedLevel} champs={champs} setChamps={setChamps} />
-          </div>
-          <RollingOdds selectedLevel={selectedLevel} selectedCost={selectedCost}  />
-          <ChampionsSelector 
-            champs={champs} 
-            setChamps={setChamps}
-            selectedCost={selectedCost} 
-            setSelectedCost={setSelectedCost}
-            championsLoaded={championsLoaded}
-          />
-        </aside>
+        <section className="flex items-start flex-col md:flex-row flex-1">
+          <aside className="flex flex-col w-full md:w-2/6 xl:w-96 mb-6 md:mb-0">
+            <h2 className="hidden">Select your level and a champion</h2>
+            <div className="flex justify-between">
+              <LevelSelector selectedLevel={selectedLevel} setSelectedLevel={setSelectedLevel} /> 
+              <ResetButton selectedLevel={selectedLevel} setSelectedLevel={setSelectedLevel} champs={champs} setChamps={setChamps} />
+            </div>
+            <RollingOdds selectedLevel={selectedLevel} selectedCost={selectedCost}  />
+            <ChampionsSelector 
+              champs={champs} 
+              setChamps={setChamps}
+              selectedCost={selectedCost} 
+              setSelectedCost={setSelectedCost}
+              championsLoaded={championsLoaded}
+            />
+          </aside>
+          
+          <ChampionsOdds selectedLevel={selectedLevel} champs={champs} setChamps={setChamps} traits={traits} />
+        </section>
         
-        <ChampionsOdds selectedLevel={selectedLevel} champs={champs} setChamps={setChamps} traits={traits} />
+        <Footer />
       </div>
-    </div>
   )
 }
 
