@@ -24,8 +24,7 @@ svg { vertical-align: baseline; }
 }
 .ticket:before { top: -10px; }
 .ticket:after { 
-  background-position-x: -20px;
-  transform: rotate(180deg);
+  background-image: url('assets/ticket-border-reverse.svg');
 }
 
 .hover-effect {
