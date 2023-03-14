@@ -74,7 +74,7 @@ const OddsByStar: React.FC<IOddsByStar> = ({ star, champion, selectedLevel, pool
           )}
           
         </>
-      ): <span className="py-4 text-2xl md:text-3xl">{emoji}</span>
+      ): <span className="py-4 text-3xl">{emoji}</span>
       }
     </div>
   )
