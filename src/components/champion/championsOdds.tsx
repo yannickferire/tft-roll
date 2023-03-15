@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import ChampionOdds from './championOdds';
-import { numberOfChampionsByCost, numberOfCopiesByCost } from '../constants/champions';
-import GoldIcon from './icons/goldIcon';
+import { numberOfChampionsByCost, numberOfCopiesByCost } from '../../constants/champions';
+import GoldIcon from '../icons/goldIcon';
 
 interface IChampionsOdds {
   champs: any[];

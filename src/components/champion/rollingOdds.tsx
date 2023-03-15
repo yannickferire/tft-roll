@@ -1,4 +1,4 @@
-import { rollingChancesByLevel } from '../constants/game';
+import { rollingChancesByLevel } from '../../constants/game';
 
 interface IRollingOdds {
   selectedLevel: number;

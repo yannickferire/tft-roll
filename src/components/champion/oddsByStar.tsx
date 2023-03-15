@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { rollingChancesByLevel, championsPerRoll, rollPrice } from '../constants/game';
-import { numberOfCopiesByCost, numberOfCopiesForTier } from '../constants/champions';
-import GoldIcon from './icons/goldIcon';
-import StarIcon from './icons/starIcon';
-import RollIcon from './icons/rollIcon';
-import CopyIcon from './icons/copyIcon';
+import { rollingChancesByLevel, championsPerRoll, rollPrice } from '../../constants/game';
+import { numberOfCopiesByCost, numberOfCopiesForTier } from '../../constants/champions';
+import GoldIcon from '../icons/goldIcon';
+import StarIcon from '../icons/starIcon';
+import RollIcon from '../icons/rollIcon';
+import CopyIcon from '../icons/copyIcon';
 
 interface IOddsByStar {
   star: number,

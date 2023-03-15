@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import './index.css';
 import { fetchChampions } from './api/fetchChampions';
-import LevelSelector from './components/levelSelector';
-import ResetButton from './components/resetButton';
-import ChampionsSelector from './components/championsSelector';
-import ChampionsOdds from './components/championsOdds';
-import RollingOdds from './components/rollingOdds';
+import LevelSelector from './components/champion/levelSelector';
+import ResetButton from './components/champion/resetButton';
+import ChampionsSelector from './components/champion/championsSelector';
+import ChampionsOdds from './components/champion/championsOdds';
+import RollingOdds from './components/champion/rollingOdds';
 import { baseCost, baseLevel } from './constants/constants';
 import Header from './components/layout/header';
 import Footer from './components/layout/footer';

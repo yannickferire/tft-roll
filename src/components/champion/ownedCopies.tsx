@@ -1,4 +1,4 @@
-import CopyIcon from './icons/copyIcon';
+import CopyIcon from '../icons/copyIcon';
 interface IOwnedCopies {
   champion: {
     name: string,

@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { possibleCost } from '../constants/cost';
-import { numberOfChampionsByCost } from '../constants/champions';
-import GoldIcon from './icons/goldIcon';
+import { possibleCost } from '../../constants/cost';
+import { numberOfChampionsByCost } from '../../constants/champions';
+import GoldIcon from '../icons/goldIcon';
 
 interface IChampionsSelector {
   champs: any[];

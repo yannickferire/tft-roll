@@ -1,5 +1,5 @@
-import CopyIcon from './icons/copyIcon';
-import { numberOfCopiesByCost } from '../constants/champions';
+import CopyIcon from '../icons/copyIcon';
+import { numberOfCopiesByCost } from '../../constants/champions';
 
 interface IOpponentsCopies {
   champion: {

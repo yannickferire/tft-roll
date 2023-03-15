@@ -2,9 +2,9 @@ import { useState } from 'react';
 import OwnedCopies from './ownedCopies';
 import OpponentsCopies from './opponentsCopies';
 import OutOfThePool from './outOfThePool';
-import GoldIcon from './icons/goldIcon';
+import GoldIcon from '../icons/goldIcon';
 import OddsByStar from './oddsByStar';
-import { numberOfCopiesForTier } from '../constants/champions';
+import { numberOfCopiesForTier } from '../../constants/champions';
 
 interface IChampionOdds {
   champion: {

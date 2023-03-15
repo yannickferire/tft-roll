@@ -1,4 +1,4 @@
-import { baseLevel } from "../constants/constants";
+import { baseLevel } from "../../constants/constants";
 
 interface IResetButton {
   selectedLevel: number;
