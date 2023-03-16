@@ -5,6 +5,7 @@ import OutOfThePool from './outOfThePool';
 import GoldIcon from '../icons/goldIcon';
 import OddsByStar from './oddsByStar';
 import { numberOfCopiesForTier } from '../../constants/champions';
+import { bestItems } from '../../data/bestItems';
 
 interface IChampionOdds {
   champion: {
@@ -76,6 +77,15 @@ const ChampionOdds: React.FC<IChampionOdds> = ({ champion, selectedLevel, pool, 
             )
           })}
         </ul>
+        {bestItems[champion.name] &&
+            <ul className={`border-2 border-midnight mt-2 lg:mt-4 flex w-20 lg:w-24 justify-between z-10 overflow-hidden rounded`}>
+              {bestItems[champion.name].map((item, index) => (
+                <li className={`flex-1 border-${champion.cost}cost`} key={index}>
+                  <img src={`/images/items/${item.replace(/\s/g, '')}.png`} alt={item} title={item} />
+                </li>
+              ))}
+            </ul>
+          }
       </header>
       <div className="order-3 lg:order-2 lg:mr-4 mt-6 lg:mt-0 flex flex-1 md:flex-1 flex-col sm:flex-row lg:flex-wrap gap-4 lg:gap-1 lg:min-w-[165px] lg:w-48 lg:flex-none">
         <OwnedCopies champion={champion} ownedCopies={ownedCopies} setOwnedCopies={setOwnedCopies} />

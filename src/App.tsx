@@ -33,7 +33,7 @@ const App: React.FC = () => {
         <Header />
 
         <section className="flex items-start flex-col md:flex-row flex-1">
-          <aside className="flex flex-col w-full md:w-2/6 xl:w-96 mb-6 md:mb-0">
+          <aside className="flex flex-col w-full md:w-2/6 xl:w-96 mb-6">
             <h2 className="hidden">Select your level and a champion</h2>
             <div className="flex justify-between">
               <LevelSelector selectedLevel={selectedLevel} setSelectedLevel={setSelectedLevel} /> 
