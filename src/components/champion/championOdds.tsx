@@ -65,13 +65,13 @@ const ChampionOdds: React.FC<IChampionOdds> = ({ champion, selectedLevel, pool, 
           <p className={`absolute text-crema text-sm px-2 pb-0.5 text-center rounded bottom-0 bg-${champion.cost}cost group-hover:grayscale group-hover:opacity-25 transition duration-500`}> <GoldIcon color="crema" size={2.5} /> {champion.cost}</p>
         </div>
         <h3 className="animate-fromtop animate-delay-1 w-20 lg:w-24 mt-2 mb-2 text-center font-medium leading-4">{champion.name}</h3>
-        <ul className="animate-fromtop animate-delay-2 w-20 lg:w-24 flex justify-center gap-1">
+        <ul className="animate-fromtop animate-delay-2 w-20 lg:w-24 flex justify-center items-center gap-1">
           {champion.traits.map((trait, index) => {
             const traitImage = traits.find(traitObj => traitObj.name === trait).image;
-            const path = trait === 'Threat' ? 'triangle pt-2 px-[6px] w-7' : 'hex w-6';
+            const path = trait === 'Threat' ? 'triangle pt-0 px-[6px] w-7 h-6' : 'hex w-6 h-7';
 
             return (
-              <li className={`${path} h-7 flex items-center justify-center p-1 text-xs bg-midnight opacity-50`} key={index}>
+              <li className={`${path} flex items-center justify-center p-1 text-xs bg-midnight opacity-50`} key={index}>
                 <img src={traitImage} alt={trait} title={trait} />
               </li>
             )

@@ -47,7 +47,7 @@ svg { vertical-align: baseline; }
 .champ-selected:hover:after { top: -5px; left: -5px; }
 
 .hex { clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
-.triangle { clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
+.triangle { clip-path: polygon(100% 0, 0 0, 50% 100%); }
 .hex img,
 .triangle img { filter: brightness(0) invert(1); }
 
