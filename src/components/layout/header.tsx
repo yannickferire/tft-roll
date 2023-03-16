@@ -10,6 +10,23 @@ const Header = () => {
           Set {currentSet}{setStage == 2 ? '.5': null}
         </span>
       </h2>
+      <div className="flex-1 hidden sm:block">
+        <ul className="flex justify-end gap-4 md:gap-6">
+          <li className="text-morning font-bold border-b-2 border-morning cursor-default">Champions</li>
+          <li className="relative cursor-default">
+            <span className="opacity-40">Loaded dice</span>
+            <span className="bg-earlynight px-2 py-1 whitespace-nowrap absolute -top-[26px] left-1/2 -translate-x-1/2 rounded text-[10px]">
+              <span className="opacity-40">Soon</span>
+            </span>
+          </li>
+          <li className="relative cursor-default">
+            <span className="opacity-40">Hero augments</span>
+            <span className="bg-earlynight px-2 py-1 whitespace-nowrap absolute -top-[26px] left-1/2 -translate-x-1/2 rounded text-[10px]">
+              <span className="opacity-40">Very Soon</span>
+            </span>
+          </li>
+        </ul>
+      </div>
     </header>
   )
 }
