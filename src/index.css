@@ -50,3 +50,85 @@ svg { vertical-align: baseline; }
 .triangle { clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
 .hex img,
 .triangle img { filter: brightness(0) invert(1); }
+
+.animate-delay-1 { animation-delay: .2s; }
+.animate-delay-2 { animation-delay: .35s; }
+.animate-delay-3 { animation-delay: .45s; }
+.animate-delay-4 { animation-delay: .5s; }
+.animate-delay-5 { animation-delay: .55s; }
+.animate-delay-6 { animation-delay: .6s; }
+.animate-speed-fast { animation-duration: .4s !important; }
+.animate-fadein { 
+  opacity: 0;
+  animation-name: fadein;
+  animation-duration: .8s;
+  animation-timing-function: cubic-bezier(.7,.31,.26,1);
+  animation-fill-mode: forwards; 
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.animate-fromleft { 
+  opacity: 0;
+  transform: translateX(-20px) translateY(3px);
+  animation-name: fromleft;
+  animation-duration: .6s;
+  animation-timing-function: cubic-bezier(.7,.31,.26,1); 
+  animation-fill-mode: forwards;
+ }
+@keyframes fromleft {
+  0% {
+    transform: translateX(-20px) translateY(3px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+  }
+}
+.animate-fromtop { 
+  opacity: 0;
+  transform: translateY(-12px);
+  animation-name: fromtop;
+  animation-duration: .5s;
+  animation-timing-function: cubic-bezier(.7,.31,.26,1);
+  animation-fill-mode: forwards; 
+}
+@keyframes fromtop {
+  0% {
+    transform: translateY(-12px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.animate-scale-descale { 
+  opacity: 0;
+  transform: scale(.9) rotate(0);
+  animation-name: scale-descale;
+  animation-duration: .75s;
+  animation-timing-function: cubic-bezier(.7,.31,.26,1);
+  animation-fill-mode: forwards; 
+}
+@keyframes scale-descale {
+  0% {
+    transform: scale(1) rotate(0);
+    opacity: 0;
+  }
+  25% { transform: scale(1.10) rotate(-10deg); }
+  60% {
+    transform: scale(1.25) rotate(8deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
+}

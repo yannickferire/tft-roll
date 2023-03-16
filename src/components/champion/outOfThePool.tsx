@@ -12,7 +12,7 @@ const OutOfThePool: React.FC<IOutOfThePool> = ({ champion,sameCostCopies, setSam
   const maxSameCostCopies = Math.round(pool[champion.cost + " cost"] / 2 / 3) * 3;
 
   return (
-    <div className="inline-block w-full bg-crema rounded">
+    <div className="animate-fromleft animate-delay-3 inline-block w-full bg-crema rounded">
       <h4 className="sm:h-10 lg:h-auto text-sm mb-2 leading-tight">Others <strong className={`text-${champion.cost}cost font-medium`}>{champion.cost} cost</strong> out of the pool <small className="inline-block opacity-60">(approximatively)</small></h4>
       <div className="flex text-lg w-full justify-between mb-2">
         <button 

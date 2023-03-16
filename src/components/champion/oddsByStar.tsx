@@ -49,14 +49,15 @@ const OddsByStar: React.FC<IOddsByStar> = ({ star, champion, selectedLevel, pool
   return (
     <div className="flex flex-col text-center flex-1">
       <span className="mb-4">
-        <span className={`rounded bg-${starColors[star-1]} align-center justify-center w-16 inline-block pb-1`}>
+        <span className={`animate-fromtop animate-delay-${star*2} rounded bg-${starColors[star-1]} align-center justify-center w-16 inline-block pb-1`}>
           {starArray.map((index) => (
               <StarIcon key={index} size={4} color={starColors[star-1]} />
           ))}
         </span>
       </span>
+      <div className={`flex justify-center animate-fadein animate-delay-${star*2}`}>
       {copiesNeeded > 0 ? (
-        <>
+        <div className={`animate-fadein flex flex-col`}>
           { // If there is 0% chance of getting a champion of this cost per roll, display infinity sign
             // & if there is no enough copies of the champion in the pool, display infinity sign
             championOfThisCostPerRoll !== 0 && (copiesNeeded <= (championCopies - ownedCopies - opponentsCopies)) ? (
@@ -73,9 +74,10 @@ const OddsByStar: React.FC<IOddsByStar> = ({ star, champion, selectedLevel, pool
             </>
           )}
           
-        </>
-      ): <span className="py-4 text-3xl">{emoji}</span>
+        </div>
+      ): <span className="animate-scale-descale py-4 text-3xl">{emoji}</span>
       }
+      </div>
     </div>
   )
 }
