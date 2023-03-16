@@ -29,7 +29,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-      <div className="App w-full xl:container px-5 py-6 flex flex-col min-h-screen">
+      <div className="App w-full xl:container px-5 pt-10 pb-8 flex flex-col min-h-screen">
         <Header />
 
         <section className="flex items-start flex-col md:flex-row flex-1">
