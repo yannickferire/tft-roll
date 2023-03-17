@@ -5,17 +5,25 @@ interface IResetButton {
   setStageSelected: (stage: number) => void;
   slotsCost: number[];
   setSlotsCost: (cost: number[]) => void;
+  traits: any[];
+  setTraits: (traits: any[]) => void;
 }
 
-const ResetButton: React.FC<IResetButton> = ({ stageSelected, setStageSelected, slotsCost, setSlotsCost }) => {
-  let resetEnabled = false;
+const ResetButton: React.FC<IResetButton> = ({ stageSelected, setStageSelected, slotsCost, setSlotsCost, traits, setTraits }) => {
+  const selectedTraits = traits.filter((trait) => trait.selected);
 
-  if (stageSelected !== baseStage || slotsCost.some((cost) => cost > 0)) {
+  let resetEnabled = false;
+  if (stageSelected !== baseStage || slotsCost.some((cost) => cost > 0)  || selectedTraits.length > 0) {
     resetEnabled = true;
   }
   const handleReset = () => {
     setStageSelected(baseStage);
     setSlotsCost([0, 0, 0]);
+    setTraits(
+      traits.map((trait) => {
+        return { ...trait, selected: false }
+      })
+    )
   }
   return (
     <button 

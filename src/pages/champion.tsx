@@ -12,14 +12,14 @@ const Champion: React.FC = () => {
   const [traits, setTraits] = useState<any[]>([]);
   const [selectedCost, setSelectedCost] = useState<string>(baseCost + " cost");
   const [selectedLevel, setSelectedLevel] = useState<number>(baseLevel);
-  const [championsLoaded, setchampionsLoaded] = useState(false);
+  const [championsLoaded, setChampionsLoaded] = useState(false);
 
   useEffect(() => {
     (async () => {
       const data = await fetchChampions();
       const champions = data.champions;
       setChamps(champions);
-      setchampionsLoaded(true);
+      setChampionsLoaded(true);
       const traits = data.traits;
       setTraits(traits);
     })();
