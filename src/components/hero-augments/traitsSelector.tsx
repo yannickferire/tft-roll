@@ -37,11 +37,11 @@ const TraitsSelector: React.FC<ITraitsSelector> = ({ traits, setTraits, traitsLo
             className={`relative`}
             onClick={() => handleTraitSelection(index)}
           >
-            <div className={`h-full py-1 px-1.5 relative flex items-center rounded overflow-hidden cursor-pointer transition-all duration-500 ${trait.selected === true ? "opacity-100 border border-crema": "opacity-50 border border-midday"} hover:opacity-100`}>
+            <div className={`h-full py-1 px-1.5 relative flex items-center rounded overflow-hidden cursor-pointer transition-all duration-500 ${trait.selected === true ? "opacity-100": "opacity-50"} hover:opacity-100`}>
               <figure className={`${path} flex items-center justify-center p-1 text-xs bg-midnight`}>
                 <img src={trait.image} alt={trait.name} />
               </figure>
-              <h3 className="text-xs ml-2">{trait.name}</h3>
+              <h3 className={`transition-all duration-500 text-xs ml-2 ${trait.selected === true ? "border-b bordercrema":"border-b border-midday"}`}>{trait.name}</h3>
             </div>
           </li>
         )})}
@@ -50,7 +50,7 @@ const TraitsSelector: React.FC<ITraitsSelector> = ({ traits, setTraits, traitsLo
         <ul className="grid grid-cols-10 gap-y-2 gap-x-1 bg-midday py-3 px-4 rounded-b">
           {skeletonNumberOfTraits.map((index) => (
           <li key={index} className="relative">
-            <div className="h-full py-1 px-1.5 relative flex items-center rounded overflow-hidden cursor-pointer transition-all duration-500 opacity-50 border border-midday  ">
+            <div className="h-full py-1 px-1.5 relative flex items-center rounded overflow-hidden cursor-pointer transition-all duration-500 opacity-50">
               <span className={`hex w-6 h-7 flex items-center justify-center p-1 text-xs bg-midnight`}>
               </span>
               <span className="ml-2 w-16 h-2.5 bg-crema rounded"></span>
