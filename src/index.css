@@ -51,6 +51,24 @@ svg { vertical-align: baseline; }
 .hex img,
 .triangle img { filter: brightness(0) invert(1); }
 
+.select::before {
+  content: '';
+  display: block;
+  position: absolute; top: 50%; right: 16px;
+  width: 10px; height: 7px;
+  transform: translateY(-50%);
+  background: url(/images/icons/expand.png) no-repeat;
+  background-size: 100% 100%;
+  pointer-events: none;
+  z-index: 20;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
 .animate-delay-1 { animation-delay: .2s; }
 .animate-delay-2 { animation-delay: .35s; }
 .animate-delay-3 { animation-delay: .45s; }
