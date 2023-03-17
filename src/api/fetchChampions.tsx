@@ -34,5 +34,7 @@ export async function fetchChampions() {
   
   const enhancedData = { champions: withImageChampions, traits: sortedTraits };
 
+  console.log(enhancedData);
+
   return enhancedData;
 }

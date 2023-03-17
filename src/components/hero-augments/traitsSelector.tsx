@@ -25,10 +25,10 @@ const TraitsSelector: React.FC<ITraitsSelector> = ({ traits, setTraits, traitsLo
 
   const skeletonNumberOfTraits = Array.from({ length: numberOfTraits }, (_, index) => index + 1);
   return (
-    <div className="flex flex-col bg-midday rounded w-100 py-3 px-4 overflow-hidden">
-      <h2 className="mb-2">Select your actives traits <small className="opacity-50">(during the previous stage)</small></h2>
+    <div className="flex flex-col rounded w-100 overflow-hidden">
+      <h2 className="rounded-t px-4 py-3 bg-earlynight">Select your actives traits <small className="opacity-50">(during the previous stage)</small></h2>
       {traitsLoaded === true ? (
-      <ul className="grid grid-cols-10 gap-y-2 gap-x-1">
+      <ul className="grid grid-cols-10 gap-y-2 gap-x-1 bg-midday py-3 px-4 rounded-b">
         {traits.map((trait, index) => {
           const path = trait.name === 'Threat' ? 'triangle pt-0 px-[6px] w-7 h-6' : 'hex w-6 h-7';
           return(
@@ -47,7 +47,7 @@ const TraitsSelector: React.FC<ITraitsSelector> = ({ traits, setTraits, traitsLo
         )})}
       </ul>
       ):(
-        <ul className="grid grid-cols-10">
+        <ul className="grid grid-cols-10 gap-y-2 gap-x-1 bg-midday py-3 px-4 rounded-b">
           {skeletonNumberOfTraits.map((index) => (
           <li key={index} className="relative">
             <div className="h-full py-1 px-1.5 relative flex items-center rounded overflow-hidden cursor-pointer transition-all duration-500 opacity-50 border border-midday  ">
