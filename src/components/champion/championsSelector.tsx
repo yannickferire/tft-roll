@@ -44,11 +44,11 @@ const ChampionsSelector: React.FC<IChampionsSelector> = ({ champs, setChamps, se
               key={index} 
               onClick={(e) => {
                 e.preventDefault;
-                setSelectedCost(e.currentTarget.innerText + ' cost');
+                setSelectedCost(e.currentTarget.textContent + ' cost');
               }} 
               className={`${(selectedCost == cost + ' cost')?'bg-midday':''} h-12 py-1 flex flex-1 content-center justify-center hover:bg-midday`}>
               <span className="my-auto flex">
-                <GoldIcon color="crema" /> <span className="ml-2">{cost}</span>
+                <GoldIcon color="crema" /><span className="ml-2">{cost}</span>
               </span>
             </button>
           ))
@@ -59,7 +59,7 @@ const ChampionsSelector: React.FC<IChampionsSelector> = ({ champs, setChamps, se
           {champs.map((champion, index) => (
             <li 
               key={index} 
-              className={`max-w-[57px] left-1/2 transform -translate-x-1/2 champion aspect-square border-2 border-${champion.cost}cost rounded relative ${champion.cost + ' cost' !== selectedCost ? "hidden " : ""}${champion.selected === true ? "champ-selected ": ""}cursor-pointer hover-effect text-${champion.cost}cost`}
+              className={`max-w-[57px] left-1/2 transform -translate-x-1/2 champion aspect-square border-2 border-${champion.cost}cost rounded relative ${(selectedCost == champion.cost + ' cost')?'':"hidden "}${champion.selected === true ? "champ-selected ": ""}cursor-pointer hover-effect text-${champion.cost}cost`}
               onClick={() => handleChampionSelection(index)}
               title={champion.name}
             >
