@@ -28,32 +28,32 @@ const TraitsSelector: React.FC<ITraitsSelector> = ({ traits, setTraits, traitsLo
     <div className="flex flex-col rounded w-100 overflow-hidden">
       <h2 className="rounded-t px-4 py-3 bg-earlynight">Select your actives traits <small className="opacity-50">(during the previous stage)</small></h2>
       {traitsLoaded === true ? (
-      <ul className="grid grid-cols-10 gap-y-2 gap-x-1 bg-midday py-3 px-4 rounded-b">
+      <ul className="grid grid-cols-8 md:grid-cols-10 gap-y-3 lg:gap-y-2 gap-x-2 lg:gap-x-1 bg-midday py-3 px-4 rounded-b">
         {traits.map((trait, index) => {
           const path = trait.name === 'Threat' ? 'triangle pt-0 px-[6px] w-7 h-6' : 'hex w-6 h-7';
           return(
           <li 
             key={index} 
-            className={`relative`}
+            className={`flex justify-center lg:justify-start`}
             onClick={() => handleTraitSelection(index)}
           >
-            <div className={`h-full py-1 px-1.5 relative flex items-center rounded overflow-hidden cursor-pointer transition-all duration-500 ${trait.selected === true ? "opacity-100": "opacity-50"} hover:opacity-100`}>
+            <div className={`h-full lg:py-1 lg:px-1.5 relative flex items-center rounded overflow-hidden cursor-pointer transition-all duration-500 ${trait.selected === true ? "opacity-100": "opacity-50"} hover:opacity-100`}>
               <figure className={`${path} flex items-center justify-center p-1 text-xs bg-midnight`}>
                 <img src={trait.image} alt={trait.name} />
               </figure>
-              <h3 className={`transition-all duration-500 text-xs ml-2 ${trait.selected === true ? "border-b bordercrema":"border-b border-midday"}`}>{trait.name}</h3>
+              <h3 className={`hidden lg:inline transition-all duration-500 text-xs ml-2 ${trait.selected === true ? "underline underline-offset-4":null}`}>{trait.name}</h3>
             </div>
           </li>
         )})}
       </ul>
       ):(
-        <ul className="grid grid-cols-10 gap-y-2 gap-x-1 bg-midday py-3 px-4 rounded-b">
+        <ul className="grid grid-cols-8 md:grid-cols-10 gap-y-3 lg:gap-y-2 gap-x-2 lg:gap-x-1 bg-midday py-3 px-4 rounded-b">
           {skeletonNumberOfTraits.map((index) => (
-          <li key={index} className="relative">
-            <div className="h-full py-1 px-1.5 relative flex items-center rounded overflow-hidden cursor-pointer transition-all duration-500 opacity-50">
+          <li key={index} className="flex justify-center lg:justify-start">
+            <div className="h-full lg:py-1 lg:px-1.5 relative flex items-center rounded overflow-hidden cursor-pointer transition-all duration-500 opacity-50">
               <span className={`hex w-6 h-7 flex items-center justify-center p-1 text-xs bg-midnight`}>
               </span>
-              <span className="ml-2 w-16 h-2.5 bg-crema rounded"></span>
+              <span className="hidden lg:inline ml-2 w-16 h-2.5 bg-crema rounded"></span>
             </div>
           </li>
           ))}

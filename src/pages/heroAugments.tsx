@@ -30,19 +30,19 @@ const HeroAugments: React.FC = () => {
     <section className="flex items-start flex-col md:flex-row flex-1">
       <aside className="flex flex-col w-full mb-6">
           <h2 className="hidden">Select your stage and your active traits</h2>
-          <div className="flex justify-between mb-6">
+          <div className="flex justify-between gap-4 md:gap-6 mb-4 md:mb-6 flex-wrap md:flex-nowrap">
             <StageSelection stageSelected={stageSelected} setStageSelected={setStageSelected} slotsCost={slotsCost} setSlotsCost={setSlotsCost} />
+            <div className="min-w-full md:min-w-0 order-3 md:order-2 flex flex-1 justify-between gap-4 md:gap-6">
+              {slotsArray.map((slot) => (
+                <Slot
+                  key={slot} index={slot} 
+                  stageSelected={stageSelected} 
+                  slotsCost={slotsCost}
+                  setSlotsCost={setSlotsCost}
+                />
+              ))}
+            </div>
             <ResetButton stageSelected={stageSelected} setStageSelected={setStageSelected} slotsCost={slotsCost} setSlotsCost={setSlotsCost} traits={traits} setTraits={setTraits} />
-          </div>
-          <div className="flex justify-between mb-6 gap-6">
-            {slotsArray.map((slot) => (
-              <Slot
-                key={slot} index={slot} 
-                stageSelected={stageSelected} 
-                slotsCost={slotsCost}
-                setSlotsCost={setSlotsCost}
-              />
-            ))}
           </div>
           <TraitsSelector traits={traits} setTraits={setTraits} traitsLoaded={traitsLoaded} />
         </aside>
