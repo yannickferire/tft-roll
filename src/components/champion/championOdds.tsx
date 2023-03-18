@@ -56,7 +56,7 @@ const ChampionOdds: React.FC<IChampionOdds> = ({ champion, selectedLevel, pool, 
       <header className="animate-fadein flex flex-col mr-2 md:mr-4">
         <div 
           onClick={() => handleRemoveChampion(champion.name)}
-          className="animate-fromleft w-20 h-20 lg:w-24 lg:h-20 relative bg-midnight rounded group cursor-pointer">
+          className="animate-fromleft w-20 h-20 lg:w-24 lg:h-24 relative bg-midnight rounded group cursor-pointer">
             <img 
               className={`mb-1 h-full border-4 border-${champion.cost}cost rounded group-hover:grayscale group-hover:opacity-25 transition duration-500`}
               src={champion.image} 
