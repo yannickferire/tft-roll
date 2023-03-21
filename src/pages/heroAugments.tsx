@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchChampions } from '../api/fetchChampions';
+import { fetchAugments } from '../api/fetchAugments';
 import StageSelection from "../components/hero-augments/stageSelection";
 import ResetButton from "../components/hero-augments/resetButton";
 import Slot from "../components/hero-augments/slot";
@@ -16,7 +16,7 @@ const HeroAugments: React.FC = () => {
   
   useEffect(() => {
     (async () => {
-      const data = await fetchChampions();
+      const data = await fetchAugments();
       const champions = data.champions;
       setChamps(champions);
       const traits = data.traits;
@@ -47,7 +47,7 @@ const HeroAugments: React.FC = () => {
         </div>
         <TraitsSelector traits={traits} setTraits={setTraits} traitsLoaded={traitsLoaded} />
       </aside>
-      <main className="mb-16">
+      <main className="mt-4 mb-16 w-full">
         <ResultChampions champs={champs} slotsCost={slotsCost} traits={traits} />
       </main>
     </section>

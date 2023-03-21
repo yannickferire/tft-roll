@@ -6,4 +6,8 @@ export const possibleStages: {[stage: string]: number} = {
 
 export const numberOfSlots: number = 3;
 
+export const numberOfHeroAugments: number = 2;
+
+export const numberOfRerolls: number = 4;
+
 export const numberOfTraits: number = 28;
