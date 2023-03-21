@@ -1,4 +1,4 @@
-import { baseStage } from "../../constants/constants";
+import { baseStage, baseSlots } from "../../constants/constants";
 
 interface IResetButton {
   stageSelected: number;
@@ -18,7 +18,7 @@ const ResetButton: React.FC<IResetButton> = ({ stageSelected, setStageSelected, 
   }
   const handleReset = () => {
     setStageSelected(baseStage);
-    setSlotsCost([0, 0, 0]);
+    setSlotsCost(baseSlots);
     setTraits(
       traits.map((trait) => {
         return { ...trait, selected: false }

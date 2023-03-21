@@ -4,14 +4,15 @@ import StageSelection from "../components/hero-augments/stageSelection";
 import ResetButton from "../components/hero-augments/resetButton";
 import Slot from "../components/hero-augments/slot";
 import { numberOfSlots } from '../constants/hero-augments';
+import { baseStage, baseSlots } from '../constants/constants';
 import TraitsSelector from "../components/hero-augments/traitsSelector";
 import ResultChampions from "../components/hero-augments/resultChampions";
 
 const HeroAugments: React.FC = () => {
   const [champs, setChamps] = useState<any[]>([]);
   const [traits, setTraits] = useState<any[]>([]);
-  const [stageSelected, setStageSelected] = useState(3);
-  const [slotsCost, setSlotsCost] = useState([2, 3, 3]);
+  const [stageSelected, setStageSelected] = useState(baseStage);
+  const [slotsCost, setSlotsCost] = useState(baseSlots);
   const [traitsLoaded, setTraitsLoaded] = useState(false);
   
   useEffect(() => {

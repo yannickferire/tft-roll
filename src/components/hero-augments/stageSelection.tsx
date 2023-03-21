@@ -7,23 +7,11 @@ interface IStageSelection {
   setSlotsCost: (cost: number[]) => void;
 }
 
-const StageSelection: React.FC<IStageSelection> = ({ stageSelected, setStageSelected, slotsCost, setSlotsCost }) => {
+const StageSelection: React.FC<IStageSelection> = ({ stageSelected, setStageSelected, setSlotsCost }) => {
   const handleStageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const value = parseInt(event.target.value);
     setStageSelected(value);
-    // This function is used to disable the options that are not available for the selected stage
-    function isCostEnabled(n: number): boolean {
-      return n === value || n === value - 1 || n === value + 1;
-    }
-    const updatedSlotsCost: number[] = [];
-    slotsCost.map((cost) => {
-      if (isCostEnabled(cost)) {
-        updatedSlotsCost.push(cost);
-      } else {
-        updatedSlotsCost.push(0);
-        setSlotsCost(updatedSlotsCost);
-      }
-    });
+    setSlotsCost([value - 1, value, value]);
   }
 
   return (
