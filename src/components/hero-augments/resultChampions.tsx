@@ -16,7 +16,6 @@ const ResultChampions: React.FC<IResultChampions> = ({ champs, traits, slotsCost
     return slotsCost.includes(champion.cost) && hasSelectedTrait;
   });
 
-  // console.log(filteredChamps);
   const chanceToGetAugment = (cost: number) => {
     const slots = slotsCost.filter(slotCost => slotCost === cost).length;
     const champs = filteredChamps.filter(champion => champion.cost === cost).length;
@@ -40,17 +39,25 @@ const ResultChampions: React.FC<IResultChampions> = ({ champs, traits, slotsCost
     return chance;
   }
 
+  // sort champs by chance to get augment
+  const compareChampsByChance = (a: any, b: any) => {
+    const chanceA = chanceToGetAugment(a.cost);
+    const chanceB = chanceToGetAugment(b.cost);
+    return chanceB - chanceA;
+  }
+  const sortedChamps = filteredChamps.sort(compareChampsByChance);
+
   return (
     <>
     <header className="grid grid-cols-10 gap-2 w-full mb-6">
-      <h3 className="col-span-2 text-xs opacity-30 text-center">Champions</h3>
+      <h3 className="col-span-2 text-xs opacity-30 text-center">Champions ({filteredChamps.length})</h3>
       <h3 className="col-span-2 text-xs opacity-30 text-center">Augments</h3>
-      <h3 className="col-span-2 text-xs opacity-30 text-center">% to see <br/>directly</h3>
-      <h3 className="col-span-2 text-xs opacity-30 text-center">% to see atleast 1<br/>with { numberOfRerolls } rerolls</h3>
-      <h3 className="col-span-2 text-xs opacity-30 text-center">% to see both<br/>with { numberOfRerolls } rerolls</h3>
+      <h3 className="col-span-2 text-xs opacity-30 text-center">% to get <br/>on show</h3>
+      <h3 className="col-span-2 text-xs opacity-30 text-center">% to get atleast 1<br/>with { numberOfRerolls } rerolls</h3>
+      <h3 className="col-span-2 text-xs opacity-30 text-center">% to get both<br/>with { numberOfRerolls } rerolls</h3>
     </header>
     <ul className="flex flex-col">  
-    {filteredChamps.map((champion, index) => (
+    {sortedChamps.map((champion, index) => (
       <li key={index} className="grid grid-cols-10 gap-2 h-24 mb-6 relative items-start">
         <div className="col-span-2 flex">
           <img 
