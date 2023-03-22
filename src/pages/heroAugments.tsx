@@ -49,7 +49,7 @@ const HeroAugments: React.FC = () => {
         <TraitsSelector traits={traits} setTraits={setTraits} traitsLoaded={traitsLoaded} stageSelected={stageSelected} />
       </aside>
       <main className="mt-4 mb-16 w-full">
-        <ResultChampions champs={champs} slotsCost={slotsCost} traits={traits} />
+        <ResultChampions champs={champs} slotsCost={slotsCost} traits={traits} stageSelected={stageSelected} />
       </main>
     </section>
   )

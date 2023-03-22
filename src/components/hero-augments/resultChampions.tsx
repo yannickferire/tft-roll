@@ -6,13 +6,19 @@ interface IResultChampions {
   champs: any[];
   traits: any[];
   slotsCost: number[];
+  stageSelected: number;
 }
 
-const ResultChampions: React.FC<IResultChampions> = ({ champs, traits, slotsCost }) => {
+const ResultChampions: React.FC<IResultChampions> = ({ champs, traits, slotsCost, stageSelected }) => {
   let selectedTraits = traits.filter((trait) => trait.selected).map((trait) => trait.name);
 
   const filteredChamps = champs.filter(champion => {
-    const hasSelectedTrait = champion.traits.some((trait: string) => selectedTraits.includes(trait));
+    let hasSelectedTrait;
+    if (stageSelected !== 2) {
+      hasSelectedTrait = champion.traits.some((trait: string) => selectedTraits.includes(trait));
+    } else {
+      hasSelectedTrait = true;
+    }
     return slotsCost.includes(champion.cost) && hasSelectedTrait;
   });
 
@@ -43,7 +49,11 @@ const ResultChampions: React.FC<IResultChampions> = ({ champs, traits, slotsCost
   const compareChampsByChance = (a: any, b: any) => {
     const chanceA = chanceToGetAugment(a.cost);
     const chanceB = chanceToGetAugment(b.cost);
-    return chanceB - chanceA;
+    if (chanceA === chanceB) {
+      return a.cost - b.cost;
+    } else {
+      return chanceB - chanceA;
+    }
   }
   const sortedChamps = filteredChamps.sort(compareChampsByChance);
 
