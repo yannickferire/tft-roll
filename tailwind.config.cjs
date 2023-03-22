@@ -56,6 +56,8 @@ module.exports = {
 			"3cost": "#2875be",
 			"4cost": "#aa09a4",
 			"5cost": "#d78e00",
+			support: "#39b65a",
+			carry: "#8b52e9",
 		},
 	},
 	plugins: [],

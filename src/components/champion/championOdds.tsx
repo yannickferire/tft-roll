@@ -78,14 +78,14 @@ const ChampionOdds: React.FC<IChampionOdds> = ({ champion, selectedLevel, pool, 
           })}
         </ul>
         {bestItems[champion.name] &&
-            <ul className={`animate-fromtop animate-delay-3 border-2 border-midnight mt-2 lg:mt-4 flex w-20 mx-auto justify-center z-10 overflow-hidden rounded`}>
-              {bestItems[champion.name].map((item, index) => (
-                <li className={`flex-1 ${index == 1?'border-l-2 border-r-2 border-midnight':null}`} key={index}>
-                  <img src={`/images/items/${item.replace(/\s/g, '')}.png`} alt={item} title={item} />
-                </li>
-              ))}
-            </ul>
-          }
+          <ul className={`animate-fromtop animate-delay-3 border-2 border-midnight mt-2 lg:mt-4 flex w-20 mx-auto justify-center z-10 overflow-hidden rounded`}>
+            {bestItems[champion.name].map((item, index) => (
+              <li className={`flex-1 ${index == 1?'border-l-2 border-r-2 border-midnight':null}`} key={index}>
+                <img src={`/images/items/${item.replace(/\s/g, '')}.png`} alt={item} title={item} />
+              </li>
+            ))}
+          </ul>
+        }
       </header>
       <div className="animate-fadein animate-delay-2 order-3 lg:order-2 lg:mr-4 mt-6 lg:mt-0 flex flex-1 md:flex-1 flex-col sm:flex-row lg:flex-wrap gap-4 lg:gap-1 lg:min-w-[165px] lg:w-48 lg:flex-none">
         <OwnedCopies champion={champion} ownedCopies={ownedCopies} setOwnedCopies={setOwnedCopies} />
