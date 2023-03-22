@@ -15,7 +15,7 @@ const ResultChampions: React.FC<IResultChampions> = ({ champs, traits, slotsCost
   const filteredChamps = champs.filter(champion => {
     let hasSelectedTrait;
     if (stageSelected !== 2 && selectedTraits.length !== 0) {
-      hasSelectedTrait = champion.traits.some((trait: string) => selectedTraits.includes(trait));
+      hasSelectedTrait = champion.traits.some((trait: string) => selectedTraits.includes(trait) || trait === 'Threat');
     } else {
       hasSelectedTrait = true;
     }
