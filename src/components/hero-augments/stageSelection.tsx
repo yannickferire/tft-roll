@@ -16,7 +16,7 @@ const StageSelection: React.FC<IStageSelection> = ({ stageSelected, setStageSele
 
   return (
     <div className="select bg-earlynight text-midday rounded leading-10 hover-effect cursor-pointer transition-all duration-300 ease-in-out">
-      <select defaultValue={stageSelected} value={stageSelected} onChange={handleStageChange} className="bg-earlynight text-crema pl-4 pr-9 z-10 relative rounded focus:outline-none focus:ring focus:ring-midday">
+      <select value={stageSelected} onChange={handleStageChange} className="bg-earlynight text-crema pl-4 pr-9 z-10 relative rounded focus:outline-none focus:ring focus:ring-midday">
         <option disabled>Select your stage</option>
         {Object.keys(possibleStages).map((stage, index) => {
           return (
