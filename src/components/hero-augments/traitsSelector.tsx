@@ -27,7 +27,7 @@ const TraitsSelector: React.FC<ITraitsSelector> = ({ traits, setTraits, traitsLo
   const skeletonNumberOfTraits = Array.from({ length: numberOfTraits }, (_, index) => index + 1);
   return (
     <div className="flex flex-col rounded w-100 overflow-hidden">
-      <h2 className="rounded-t px-4 py-3 bg-earlynight">Select your actives traits <small className="opacity-50">(during the previous stage)</small></h2>
+      <h2 className="rounded-t px-4 py-3 bg-earlynight"><span className={`${(stageSelected == 2)?'opacity-10 pointer-events-none':'opacity-100'} transition duration-500`}>Select your actives traits <small className="opacity-50">(during the previous stage)</small></span></h2>
       {traitsLoaded === true ? (
       <ul className="relative grid grid-cols-8 md:grid-cols-10 gap-y-3 lg:gap-y-2 gap-x-2 lg:gap-x-1 bg-midday py-3 px-4 rounded-b">
         {traits.map((trait, index) => {
@@ -35,7 +35,7 @@ const TraitsSelector: React.FC<ITraitsSelector> = ({ traits, setTraits, traitsLo
           return(
           <li 
             key={index} 
-            className={`${(stageSelected == 2)?'opacity-10 pointer-events-none':'opacity-100'} flex justify-center lg:justify-start`}
+            className={`${(stageSelected == 2)?'opacity-10 pointer-events-none':'opacity-100'} transition-all flex justify-center lg:justify-start`}
             onClick={() => handleTraitSelection(index)}
           >
             <div className={`h-full lg:py-1 lg:px-1.5 relative flex items-center rounded overflow-hidden cursor-pointer transition-all duration-500 ${trait.selected === true ? "opacity-100": "opacity-50"} hover:opacity-100`}>
@@ -47,8 +47,8 @@ const TraitsSelector: React.FC<ITraitsSelector> = ({ traits, setTraits, traitsLo
           </li>
         )})}
         {stageSelected == 2 ? (
-          <li className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-            Hero augments in <strong>2-1 are not tailored</strong> <br/>on your active traits.
+          <li className="animate-fromtop absolute top-0 left-0 w-full h-full text-center flex items-center justify-center">
+            <span>Hero augments in <strong>2-1 are not tailored</strong> <br/>on your active traits.</span>
           </li>
         ):null}
       </ul>
