@@ -1,4 +1,4 @@
-import { numberOfTraits } from '../../constants/hero-augments';
+import { numberOfSlots, numberOfTraits } from '../../constants/hero-augments';
 
 interface ITraitsSelector {
   traits: any[];
@@ -23,11 +23,14 @@ const TraitsSelector: React.FC<ITraitsSelector> = ({ traits, setTraits, traitsLo
       })
     )
   }
+  const activeTraits = traits.filter((trait) => trait.selected).length;
+  const slotsTailored = activeTraits > numberOfSlots ? numberOfSlots : activeTraits;
+  const slotsRandom = activeTraits > numberOfSlots ? 0 : numberOfSlots - activeTraits;
 
   const skeletonNumberOfTraits = Array.from({ length: numberOfTraits }, (_, index) => index + 1);
   return (
     <div className="flex flex-col rounded w-100 overflow-hidden">
-      <h2 className="rounded-t px-4 py-3 bg-earlynight"><span className={`${(stageSelected == 2)?'opacity-10 pointer-events-none':'opacity-100'} transition duration-500`}>Select your actives traits <small className="opacity-50">(during the previous stage)</small></span></h2>
+      <h2 className="rounded-t px-4 py-3 bg-earlynight"><span className={`${(stageSelected == 2)?'opacity-10 pointer-events-none':'opacity-100'} transition duration-500`}>Select your actives traits <small className="block sm:inline-block opacity-50">({activeTraits} trait{activeTraits > 1?'s':null} selected: {slotsTailored} slot{slotsTailored > 1?'s':null} tailored, {slotsRandom} slot{slotsRandom > 1 ?'s':null} random)</small></span></h2>
       {traitsLoaded === true ? (
       <ul className="relative grid grid-cols-8 md:grid-cols-10 gap-y-3 lg:gap-y-2 gap-x-2 lg:gap-x-1 bg-midday py-3 px-4 rounded-b">
         {traits.map((trait, index) => {
