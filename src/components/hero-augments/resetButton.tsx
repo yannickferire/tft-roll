@@ -13,7 +13,7 @@ const ResetButton: React.FC<IResetButton> = ({ stageSelected, setStageSelected, 
   const selectedTraits = traits.filter((trait) => trait.selected);
 
   let resetEnabled = false;
-  if (stageSelected !== baseStage || slotsCost.some((cost) => cost > 0)  || selectedTraits.length > 0) {
+  if (stageSelected !== baseStage || slotsCost !== baseSlots || selectedTraits.length > 0) {
     resetEnabled = true;
   }
   const handleReset = () => {

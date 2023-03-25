@@ -6,7 +6,7 @@ import Slot from "../components/hero-augments/slot";
 import { numberOfSlots } from '../constants/hero-augments';
 import { baseStage, baseSlots } from '../constants/constants';
 import TraitsSelector from "../components/hero-augments/traitsSelector";
-import ResultChampions from "../components/hero-augments/resultChampions";
+import Champions from "../components/hero-augments/result/champions";
 
 const HeroAugments: React.FC = () => {
   const [champs, setChamps] = useState<any[]>([]);
@@ -28,6 +28,8 @@ const HeroAugments: React.FC = () => {
 
   const slotsArray = Array.from({ length: numberOfSlots }, (_, index) => index + 1);
 
+  const activeTraits = traits.filter((trait) => trait.selected).length;
+
   return (
     <section className="flex items-start flex-col flex-1">
       <aside className="flex flex-col w-full mb-6">
@@ -46,10 +48,10 @@ const HeroAugments: React.FC = () => {
           </div>
           <ResetButton stageSelected={stageSelected} setStageSelected={setStageSelected} slotsCost={slotsCost} setSlotsCost={setSlotsCost} traits={traits} setTraits={setTraits} />
         </div>
-        <TraitsSelector traits={traits} setTraits={setTraits} traitsLoaded={traitsLoaded} stageSelected={stageSelected} />
+        <TraitsSelector traits={traits} setTraits={setTraits} traitsLoaded={traitsLoaded} stageSelected={stageSelected} activeTraits={activeTraits} />
       </aside>
       <main className="mt-4 mb-16 w-full">
-        <ResultChampions champs={champs} slotsCost={slotsCost} traits={traits} stageSelected={stageSelected} />
+        <Champions champs={champs} slotsCost={slotsCost} traits={traits} stageSelected={stageSelected} activeTraits={activeTraits} />
       </main>
     </section>
   )

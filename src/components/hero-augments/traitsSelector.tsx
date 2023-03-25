@@ -4,10 +4,11 @@ interface ITraitsSelector {
   traits: any[];
   setTraits: (traits: any[]) => void;
   traitsLoaded: boolean;
+  activeTraits: number;
   stageSelected: number;
 }
 
-const TraitsSelector: React.FC<ITraitsSelector> = ({ traits, setTraits, traitsLoaded, stageSelected }) => {
+const TraitsSelector: React.FC<ITraitsSelector> = ({ traits, setTraits, traitsLoaded, activeTraits, stageSelected }) => {
   const handleTraitSelection = (index: number) => {
     setTraits(
       traits.map((trait, i) => {
@@ -23,7 +24,6 @@ const TraitsSelector: React.FC<ITraitsSelector> = ({ traits, setTraits, traitsLo
       })
     )
   }
-  const activeTraits = traits.filter((trait) => trait.selected).length;
   const slotsTailored = activeTraits > numberOfSlots ? numberOfSlots : activeTraits;
   const slotsRandom = activeTraits > numberOfSlots ? 0 : numberOfSlots - activeTraits;
 
