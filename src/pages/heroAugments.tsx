@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Helmet } from 'react-helmet-async';
 import { fetchAugments } from '../api/fetchAugments';
 import StageSelection from "../components/hero-augments/stageSelection";
 import ResetButton from "../components/hero-augments/resetButton";
@@ -31,29 +32,37 @@ const HeroAugments: React.FC = () => {
   const activeTraits = traits.filter((trait) => trait.selected).length;
 
   return (
-    <section className="flex items-start flex-col flex-1">
-      <aside className="flex flex-col w-full mb-6">
-        <h2 className="hidden">Select your stage and your active traits</h2>
-        <div className="flex justify-between gap-4 md:gap-6 mb-4 md:mb-6 flex-wrap md:flex-nowrap">
-          <StageSelection stageSelected={stageSelected} setStageSelected={setStageSelected} slotsCost={slotsCost} setSlotsCost={setSlotsCost} />
-          <div className="min-w-full md:min-w-0 order-3 md:order-2 flex flex-1 justify-between gap-4 md:gap-6">
-            {slotsArray.map((slot) => (
-              <Slot
-                key={slot} index={slot} 
-                stageSelected={stageSelected} 
-                slotsCost={slotsCost}
-                setSlotsCost={setSlotsCost}
-              />
-            ))}
+    <>
+      <Helmet>
+        <title>Hero Augments probabilities – TFT odds</title>
+        <meta name="description" content="Discover how you can have the best chance to hit the champion augment your team needs! Find out the probability to hit every hero augments. Optimize your gameplay and climb the ranks with ease." />
+        <meta property="og:title" content="Hero Augments probabilities – TFT odds" />
+		    <meta property="og:description" content="Discover how you can have the best chance to hit the champion augment your team needs! Find out the probability to hit every hero augments. Optimize your gameplay and climb the ranks with ease." />
+      </Helmet>
+      <section className="flex items-start flex-col flex-1">
+        <aside className="flex flex-col w-full mb-6">
+          <h2 className="hidden">Select your stage and your active traits</h2>
+          <div className="flex justify-between gap-4 md:gap-6 mb-4 md:mb-6 flex-wrap md:flex-nowrap">
+            <StageSelection stageSelected={stageSelected} setStageSelected={setStageSelected} slotsCost={slotsCost} setSlotsCost={setSlotsCost} />
+            <div className="min-w-full md:min-w-0 order-3 md:order-2 flex flex-1 justify-between gap-4 md:gap-6">
+              {slotsArray.map((slot) => (
+                <Slot
+                  key={slot} index={slot} 
+                  stageSelected={stageSelected} 
+                  slotsCost={slotsCost}
+                  setSlotsCost={setSlotsCost}
+                />
+              ))}
+            </div>
+            <ResetButton stageSelected={stageSelected} setStageSelected={setStageSelected} slotsCost={slotsCost} setSlotsCost={setSlotsCost} traits={traits} setTraits={setTraits} />
           </div>
-          <ResetButton stageSelected={stageSelected} setStageSelected={setStageSelected} slotsCost={slotsCost} setSlotsCost={setSlotsCost} traits={traits} setTraits={setTraits} />
-        </div>
-        <TraitsSelector traits={traits} setTraits={setTraits} traitsLoaded={traitsLoaded} stageSelected={stageSelected} activeTraits={activeTraits} />
-      </aside>
-      <main className="mt-4 mb-16 w-full">
-        <Champions champs={champs} slotsCost={slotsCost} traits={traits} stageSelected={stageSelected} activeTraits={activeTraits} />
-      </main>
-    </section>
+          <TraitsSelector traits={traits} setTraits={setTraits} traitsLoaded={traitsLoaded} stageSelected={stageSelected} activeTraits={activeTraits} />
+        </aside>
+        <main className="mt-4 mb-16 w-full">
+          <Champions champs={champs} slotsCost={slotsCost} traits={traits} stageSelected={stageSelected} activeTraits={activeTraits} />
+        </main>
+      </section>
+    </>
   )
 }
 

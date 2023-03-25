@@ -1,6 +1,6 @@
 const Error: React.FC = () => {
   return (
-    <div>Coucou 404</div>
+    <div>Error 404</div>
   )
 }
 
