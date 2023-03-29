@@ -9,6 +9,7 @@ import App from './App'
 import Error from './pages/error'
 import Champion from './pages/champion'
 import HeroAugments from './pages/heroAugments'
+import LoadedDice from './pages/loadedDice'
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "hero-augments",
         element: <HeroAugments />,
+      },
+      {
+        path: "loaded-dice",
+        element: <LoadedDice />,
       },
     ]
   }

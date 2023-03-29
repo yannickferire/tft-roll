@@ -19,9 +19,12 @@ const Footer = () => {
                 className="leading-[30px] sm:leading-normal inline-block opacity-40 hover:opacity-100 tracking-wider font-bold"
               >Hero Augments</NavLink>
             </li>
-            {/* <li className="relative cursor-default">
-              <span className="opacity-20">Loaded dice</span>
-            </li> */}
+            <li>
+              <NavLink 
+                to={`/loaded-dice`}
+                className="leading-[30px] sm:leading-normal inline-block opacity-40 hover:opacity-100 tracking-wider font-bold"
+              >Loaded Dice</NavLink>
+            </li>
           </ul>
           <p className="flex-1 text-center sm:text-right text-xs text-crema leading-5">
             <a href="mailto:hello@tftodds.com" className="leading-[30px] sm:leading-normal inline-block opacity-40 hover:opacity-100 tracking-wider font-bold">hello@tftodds.com</a><br/>

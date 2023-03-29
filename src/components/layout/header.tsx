@@ -33,11 +33,15 @@ const Header = () => {
               }
             >Hero Augments</NavLink>
           </li>
-          <li className="relative cursor-default">
-            <span className="opacity-40">Loaded dice</span>
-            <span className="bg-earlynight px-2 py-1 whitespace-nowrap absolute -top-[26px] left-1/2 -translate-x-1/2 rounded text-[10px]">
-              <span className="opacity-40">Very Soon</span>
-            </span>
+          <li>
+            <NavLink 
+              to={`/loaded-dice`}
+              className={({ isActive }) =>
+                isActive
+                  ? "text-morning transition-all duration-300 ease-in-out font-bold border-b-2 border-morning cursor-pointer"
+                  : "text-crema transition-all duration-300 ease-in-out cursor-pointer font-bold border-b-2 border-midnight hover:border-crema"
+              }
+            >Loaded Dice</NavLink>
           </li>
         </ul>
       </div>
