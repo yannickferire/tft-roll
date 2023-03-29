@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { fetchChampions } from '../api/fetchChampions';
+import { Helmet } from 'react-helmet-async';
 import LevelSelector from '../components/champion/levelSelector';
 import ResetButton from '../components/champion/resetButton';
 import ChampionsSelector from '../components/champion/championsSelector';
@@ -26,6 +27,14 @@ const Champion: React.FC = () => {
   }, []);
 
   return(
+    <>
+      <Helmet>
+        <title>Teamfight Tactics Odds – TFT Set 8.5 Champions rolling probabilities</title>
+        <meta name="description" content="Know your chances of hitting champions in any scenario. Mastering the odds will help you managing your golds and climb the ranks in the ladder. Get ahead of the game and dominate your opponents. Check it out now!" />
+        <meta property="og:title" content="Teamfight Tactics Odds – TFT Set 8.5 Champions rolling probabilities" />
+		    <meta property="og:description" content="Know your chances of hitting champions in any scenario. Mastering the odds will help you managing your golds and climb the ranks in the ladder. Get ahead of the game and dominate your opponents. Check it out now!" />
+      </Helmet>
+      <h2 className="hidden">Champions rolling statistics and probabilites – See how much gold you need for every units!</h2>
       <section className="flex items-start flex-col md:flex-row flex-1">
         <aside className="flex flex-col w-full md:w-2/6 xl:w-96 mb-6">
           <h2 className="hidden">Select your level and a champion</h2>
@@ -45,6 +54,7 @@ const Champion: React.FC = () => {
           
         <ChampionsOdds selectedLevel={selectedLevel} champs={champs} setChamps={setChamps} traits={traits} />
       </section>
+    </>
   )
 }
 
