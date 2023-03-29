@@ -192,7 +192,7 @@ const Champions: React.FC<IChampions> = ({ champs, traits, activeTraits, slotsCo
       {sortedChamps.map((champion, index) => (
         <li key={champion.name} className={`animate-fromtop animate-delay-${index} grid grid-cols-12 md:grid-cols-10 gap-2 mb-6 relative items-start`}>
           <ChampionProfile champion={champion} traits={traits} selectedTraits={selectedTraits} />
-          <ChampionAugments champion={champion} />
+          <ChampionAugments champion={champion} stageSelected={stageSelected} />
           <div className="col-span-2 text-center flex flex-col">
             <span className="h-10 text-sm sm:text-base flex items-end justify-center mb-3">{ chanceToGetAugment(champion.name, champion.cost, champion.traits) }%</span>
             <span className="h-10 text-sm sm:text-base flex items-star justify-center">{ chanceToGetAugment(champion.name, champion.cost, champion.traits) }%</span>
@@ -214,7 +214,7 @@ const Champions: React.FC<IChampions> = ({ champs, traits, activeTraits, slotsCo
             {unFilteredChamps.filter(champion => champion.cost === cost).map((champion, index) => (
               <li key={champion.name} className={`animate-fromtop animate-delay-${index} grid grid-cols-12 md:grid-cols-10 gap-2 mb-6 relative items-start`}>
                 <ChampionProfile champion={champion} traits={traits} selectedTraits={selectedTraits} />
-                <ChampionAugments champion={champion} />
+                <ChampionAugments  champion={champion} stageSelected={stageSelected} />
                 <div className="col-span-2 text-center flex flex-col">
                   <span className="h-10 text-sm sm:text-base flex items-end justify-center mb-3">{ chanceToGetAugment(champion.name, champion.cost, champion.traits, true) }%</span>
                   <span className="h-10 text-sm sm:text-base flex items-star justify-center">{ chanceToGetAugment(champion.name, champion.cost, champion.traits, true) }%</span>
