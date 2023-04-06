@@ -7,15 +7,28 @@ interface IChampionSelector {
 }
 
 const ChampionSelector: React.FC<IChampionSelector> = ({ champs, setChamps, championsLoaded }) => {
+  const handleChampionSelection = (index: number) => {
+    setChamps(
+      champs.map((champion, i) => {
+        if (i === index) {
+          return  { ...champion, selected: true }
+        } else {
+          return { ...champion, selected: false }
+        }
+      })
+    )
+  }
 
-  const skeletonNumberOfChampions = Array.from({ length: totalNumberOfChampions }, (_, index) => index + 1);
-
+  
   const sortedChamps = champs.sort((a, b) => {
     if (a.cost === b.cost) {
       return a.name.localeCompare(b.name);
     }
     return a.cost - b.cost;
   });
+
+  const skeletonNumberOfChampions = Array.from({ length: totalNumberOfChampions }, (_, index) => index + 1);
+
   return (
     <div className="flex flex-col rounded w-100 overflow-hidden">
       <h2 className="rounded-t px-4 py-3 bg-earlynight">Select the champion you want</h2>
@@ -24,8 +37,8 @@ const ChampionSelector: React.FC<IChampionSelector> = ({ champs, setChamps, cham
         {sortedChamps.map((champion, index) => (
             <li 
               key={index} 
-              className={`min-w-[50px] w-[50px] max-w-[50px] flex-1 champion aspect-square border-2 border-${champion.cost}cost rounded relative cursor-pointer hover-effect text-${champion.cost}cost`}
-              // onClick={() => handleChampionSelection(index)}
+              className={`min-w-[50px] w-[50px] max-w-[50px] flex-1 champion aspect-square border-2 border-${champion.cost}cost rounded relative cursor-pointer hover-effect ${champion.selected === true ? "champ-selected ": ""} text-${champion.cost}cost`}
+              onClick={() => handleChampionSelection(index)}
               title={champion.name}
             >
               <div className="w-full h-full relative block rounded overflow-hidden">
