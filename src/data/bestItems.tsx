@@ -19,7 +19,7 @@ export const bestItems: { [champion: string]: any[] } = {
   "Jax": ["Rapid Firecannon", "Guinsoos Rageblade", "Bloodthirster"],
   "Jhin": ["Last Whisper", "Infinity Edge", "Giant Slayer"], 
   "Jinx": ["Statikk Shiv", "Spear of Shojin", "Giant Slayer"],
-  "Kai'Sa": ["Statikk Shiv", "Jeweled Gauntlet", "Guardbreaker"],
+  "Kai'Sa": ["Archangel Staff", "Jeweled Gauntlet", "Hextech Gunblade"],
   "Kayle": ["Last Whisper", "Giant Slayer", "Infinity Edge"],
   "LeBlanc": ["Jeweled Gauntlet", "GiantSlayer", "BlueBuff"],
   "Lee Sin": ["Sunfire Cape", "Warmogs Armor", "Redemption"],
