@@ -34,7 +34,7 @@ const ChampionProfile: React.FC<IChampionProfile> = ({ champion, traits, selecte
           <ul className={`border-2 border-midnight mt-3 flex mx-auto w-full max-w-[80px] md:w-16 lg:w-20 z-10 overflow-hidden rounded`}>
             {bestItems[champion.name].map((item, index) => (
               <li className={`flex-1 ${index == 1?'border-l-2 border-r-2 border-midnight':null}`} key={index}>
-                <img src={`/images/items/${item.replace(/\s/g, '')}.png`} alt={item} title={item} />
+                <img src={`/images/items/${item.replace(/['\s]/g, '')}.png`} alt={item} title={item} />
               </li>
             ))}
           </ul>

@@ -81,7 +81,7 @@ const ChampionOdds: React.FC<IChampionOdds> = ({ champion, selectedLevel, pool, 
           <ul className={`animate-fromtop animate-delay-3 border-2 border-midnight mt-2 lg:mt-4 flex w-20 mx-auto justify-center z-10 overflow-hidden rounded`}>
             {bestItems[champion.name].map((item, index) => (
               <li className={`flex-1 ${index == 1?'border-l-2 border-r-2 border-midnight':null}`} key={index}>
-                <img src={`/images/items/${item.replace(/\s/g, '')}.png`} alt={item} title={item} />
+                <img src={`/images/items/${item.replace(/['\s]/g, '')}.png`} alt={item} title={item} />
               </li>
             ))}
           </ul>
