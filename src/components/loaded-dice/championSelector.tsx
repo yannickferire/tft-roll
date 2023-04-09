@@ -31,7 +31,7 @@ const ChampionSelector: React.FC<IChampionSelector> = ({ champs, setChamps, cham
 
   return (
     <div className="flex flex-col rounded w-100 overflow-hidden">
-      <h2 className="rounded-t px-4 py-3 bg-earlynight">Select the champion you want</h2>
+      <h2 className="rounded-t px-4 py-3 bg-earlynight">Select the champion you want with your loaded dice</h2>
       {championsLoaded === true ? (
       <ul className="relative flex bg-midday py-3 px-4 gap-2.5 rounded-b flex-wrap">
         {sortedChamps.map((champion, index) => (

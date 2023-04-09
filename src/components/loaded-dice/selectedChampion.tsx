@@ -8,7 +8,7 @@ interface ISelectedChampion {
 
 const SelectedChampion: React.FC<ISelectedChampion> = ({ champs, traits }) => {
   return (
-    <div>
+    <div className="mb-10">
       {champs.map((champion, index) => (
         champion.selected === true ? (
           <div key={index} className="relative flex gap-6">

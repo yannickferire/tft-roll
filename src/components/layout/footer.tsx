@@ -29,7 +29,7 @@ const Footer = () => {
           <p className="flex-1 text-center sm:text-right text-xs text-crema leading-5">
             <a href="mailto:hello@tftodds.com" className="leading-[30px] sm:leading-normal inline-block opacity-40 hover:opacity-100 tracking-wider font-bold">hello@tftodds.com</a><br/>
             <a className="leading-[30px] sm:leading-normal inline-block opacity-40 hover:opacity-100 tracking-wider font-bold" href="javascript:openAxeptioCookies()">Cookies</a><br/>
-            <span className="opacity-40">Made by</span> <a className="leading-[30px] sm:leading-normal font-bold opacity-40 hover:opacity-100" href="https://lolchess.gg/profile/euw/krksyx" target="_blank" rel="noreferrer"><img className="inline-block w-5 -mt-px" src="/images/ranks/diamond.png" alt="Rank: Diamond I" /> krksyx</a><span className="inline opacity-40"> – © 2023 TFT Odds</span></p>
+            <span className="opacity-40">Made by</span> <a className="leading-[30px] sm:leading-normal font-bold opacity-40 hover:opacity-100" href="https://lolchess.gg/profile/euw/krksyx" target="_blank" rel="noreferrer"><img className="inline-block w-5 -mt-px" src="/images/ranks/master.png" alt="Rank: Master" /> krksyx</a><span className="inline opacity-40"> – © 2023 TFT Odds</span></p>
         </div>
       </div>
     </footer>

@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { fetchChampions } from '../api/fetchChampions';
 import { Helmet } from 'react-helmet-async';
 import ChampionSelector from "../components/loaded-dice/championSelector";
-import ResetButton from "../components/loaded-dice/resetButton";
+// import ResetButton from "../components/loaded-dice/resetButton";
 import SelectedChampion from "../components/loaded-dice/selectedChampion";
+import DiceOdds from "../components/loaded-dice/diceOdds";
 
 const LoadedDice: React.FC = () => {
   const [champs, setChamps] = useState<any[]>([]);
@@ -15,7 +16,7 @@ const LoadedDice: React.FC = () => {
       const data = await fetchChampions();
       const champions = data.champions;
       champions.forEach((champion: any) => {
-        if (champion.name === "Janna") {
+        if (champion.name === "Jhin") {
           champion.selected = true;
         } else {
           champion.selected = false;
@@ -40,9 +41,9 @@ const LoadedDice: React.FC = () => {
       <section className="flex items-start flex-col flex-1">
         <aside className="flex flex-col w-full mb-6">
           <h2 className="hidden">Select a champion to get with your loaded dice</h2>
-          <div className="flex justify-between gap-4 md:gap-6 mb-4 md:mb-6 flex-wrap md:flex-nowrap">
+          {/* <div className="flex justify-between gap-4 md:gap-6 mb-4 md:mb-6 flex-wrap md:flex-nowrap">
             <ResetButton />
-          </div>
+          </div> */}
           <ChampionSelector 
             champs={champs} 
             setChamps={setChamps}
@@ -51,6 +52,7 @@ const LoadedDice: React.FC = () => {
         </aside>
         <main className="mb-16 w-full">
           <SelectedChampion champs={champs} traits={traits} />
+          <DiceOdds champs={champs} setChamps={setChamps} traits={traits} />
         </main>
       </section>
     </>
