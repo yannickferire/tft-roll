@@ -58,7 +58,7 @@ const DiceOdds: React.FC<IDiceOdds> = ({ champs, setChamps, traits }) => {
         {sortedChamps.map((champion, index) => (
           <li key={index} className="flex hover:bg-gradient-to-r from-midnight to-earlynight py-3">
             <header 
-              className="w-40 flex items-center gap-2 cursor-pointer"
+              className="w-20 md:w-40  flex items-center gap-1 md:gap-2 cursor-pointer"
               onClick={() => handleChampionSelection(champion.name)}
               >
               <img 
@@ -66,7 +66,7 @@ const DiceOdds: React.FC<IDiceOdds> = ({ champs, setChamps, traits }) => {
                 src={champion.image} 
                 alt={champion.name}
                 title={champion.name} />
-              <div>
+              <div className="hidden md:block">
                 <h3 className="text-sm text-center mb-1 leading-tight opacity-30">{champion.name}</h3>
                 <ul className="w-full max-w-[96px] md:w-20 lg:w-24 justify-center mx-auto flex items-center gap-1">
                   {champion.traits.map((trait:string, index:number) => {
@@ -81,13 +81,13 @@ const DiceOdds: React.FC<IDiceOdds> = ({ champs, setChamps, traits }) => {
                 </ul>
               </div>
             </header>
-            <ul className="flex items-center justify-around text-center gap-2 w-full">
+            <ul className="flex items-center justify-around text-center gap-1 md:gap-2 w-full">
               {Object.values(possibleLevels).map((level, index) => {
                 const chance = chanceToGetChampion(selectedChamp.cost, champion.traits, level);
                 const opacity = (chance - 0) / (35 - 0) * (1 - 0.3) + 0.3; // Opacity varies from 0.3 to 1
 
                 return (
-                  <li key={index} className="w-20" style={{ opacity }}>
+                  <li key={index} className={`w-12 md:w-20 ${index == 0 || index == 7?"hidden":""} md:block`} style={{ opacity }}>
                     {chance}%
                   </li>
                 );

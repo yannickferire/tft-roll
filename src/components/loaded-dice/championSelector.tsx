@@ -29,11 +29,48 @@ const ChampionSelector: React.FC<IChampionSelector> = ({ champs, setChamps, cham
 
   const skeletonNumberOfChampions = Array.from({ length: totalNumberOfChampions }, (_, index) => index + 1);
 
+  let isExpanded = false; 
+  const screenWidth = window.innerWidth;
+  const toggleExpansion = () => {
+    const breakpoint = 819;
+    const content = document.querySelector(".expandable") as HTMLElement;
+    const select = document.querySelector(".select") as HTMLElement;
+    if (content != null && screenWidth <= breakpoint) {
+      if (!isExpanded) {
+        content.style.maxHeight = "0";
+        content.classList.remove("h-0");
+        content.classList.add("h-auto", "transition-height", "!py-3");
+        var height = content.scrollHeight + "px";
+        content.style.maxHeight = height;
+        isExpanded = true;
+        select.classList.add("select--open");
+      } else {
+        content.classList.add("transition-height");
+        content.style.height = content.scrollHeight + "px";
+        setTimeout(function () {
+          content.style.maxHeight = "0";
+        }, 0);
+        content.classList.remove("!py-3");
+        isExpanded = false;
+        select.classList.remove("select--open");
+      }
+      content.addEventListener("transitionend", function (event) {
+        if (event.target === content && !isExpanded) {
+          content.classList.remove("transition-height");
+          content.classList.add("h-0");
+          content.style.height = "";
+        }
+      })
+    }
+  }
+
   return (
     <div className="flex flex-col rounded w-100 overflow-hidden">
-      <h2 className="rounded-t px-4 py-3 bg-earlynight">Select the champion you want with your loaded dice</h2>
+      <h2 
+        className={`${screenWidth > 819 ? '' : 'select'} relative rounded md:rounded-b-none px-4 py-3 bg-earlynight`}
+        onClick={() => toggleExpansion()}>Select the champion you want</h2>
       {championsLoaded === true ? (
-      <ul className="relative flex bg-midday py-3 px-4 gap-2.5 rounded-b flex-wrap">
+      <ul className="expandable box-content overflow-hidden transition ease-out duration-1000 h-0 py-0 relative grid grid-cols-5 sm:flex bg-midday md:h-auto md:py-3 px-4 gap-2.5 rounded-b flex-wrap">
         {sortedChamps.map((champion, index) => (
             <li 
               key={index} 
@@ -51,7 +88,7 @@ const ChampionSelector: React.FC<IChampionSelector> = ({ champs, setChamps, cham
           ))}
       </ul>
       ) : (
-        <ul className="relative flex bg-midday py-3 px-4 gap-2.5 rounded-b flex-wrap">
+        <ul className="expandable box-content overflow-hidden transition ease-out duration-1000 h-0 py-0 relative grid grid-cols-5 sm:flex bg-midday md:h-auto md:py-3 px-4 gap-2.5 rounded-b flex-wrap">
           {skeletonNumberOfChampions.map((index) => (
             <li 
               key={index} 

@@ -34,7 +34,7 @@ const Champion: React.FC = () => {
         <meta property="og:title" content="Teamfight Tactics Odds – TFT Set 8.5 Champions rolling probabilities" />
 		    <meta property="og:description" content="Know your chances of hitting champions in any scenario. Mastering the odds will help you managing your golds and climb the ranks in the ladder. Get ahead of the game and dominate your opponents. Check it out now!" />
       </Helmet>
-      <h2 className="hidden">Champions rolling statistics and probabilites – See how much gold you need for every units!</h2>
+      <h2 className="text-3xl mt-4 mb-12 font-bold px-4 text-center"><strong className="text-morning">Champions</strong> rolling odds<span className="hidden"> – See how much gold you need for every units!</span></h2>
       <section className="flex items-start flex-col md:flex-row flex-1">
         <aside className="flex flex-col w-full md:w-2/6 xl:w-96 mb-6">
           <h2 className="hidden">Select your level and a champion</h2>

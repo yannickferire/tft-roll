@@ -37,13 +37,9 @@ const LoadedDice: React.FC = () => {
         <meta property="og:title" content="Loaded dice probabilities – TFT odds" />
 		    <meta property="og:description" content="Discover how you can have the best chance to hit the champion augment your team needs! Find out the probability to hit every hero augments. Optimize your gameplay and climb the ranks with ease." />
       </Helmet>
-      <h2 className="hidden">Loaded dice odds and probabilites – Use it correctly will lead you to victory!</h2>
+      <h2 className="text-3xl mt-4 mb-12 font-bold px-4 text-center"><strong className="text-morning">Loaded dice</strong> cheatsheet<span className="hidden"> – Use it correctly will lead you to victory!</span></h2>
       <section className="flex items-start flex-col flex-1">
-        <aside className="flex flex-col w-full mb-6">
-          <h2 className="hidden">Select a champion to get with your loaded dice</h2>
-          {/* <div className="flex justify-between gap-4 md:gap-6 mb-4 md:mb-6 flex-wrap md:flex-nowrap">
-            <ResetButton />
-          </div> */}
+        <aside className="flex flex-col w-full mb-8">
           <ChampionSelector 
             champs={champs} 
             setChamps={setChamps}

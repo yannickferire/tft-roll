@@ -8,13 +8,13 @@ interface ISelectedChampion {
 
 const SelectedChampion: React.FC<ISelectedChampion> = ({ champs, traits }) => {
   return (
-    <div className="mb-10">
+    <div className="mb-16">
       {champs.map((champion, index) => (
         champion.selected === true ? (
           <div key={index} className="relative flex gap-6">
             <div>
               <img 
-              className={`mb-1 w-full md:max-w-[96px] aspect-square border-4 border-${champion.cost}cost rounded group-hover:grayscale group-hover:opacity-25 transition duration-500`}
+              className={`mb-1 w-full max-w-[96px] aspect-square border-4 border-${champion.cost}cost rounded group-hover:grayscale group-hover:opacity-25 transition duration-500`}
               src={champion.image} 
               alt={champion.name} />
               <p className={`absolute text-crema text-xs sm:text-sm px-2 pb-0.5 text-center rounded bottom-1 bg-${champion.cost}cost group-hover:grayscale group-hover:opacity-25 transition duration-500`}> <GoldIcon color="crema" size={2.5} /> {champion.cost}</p>

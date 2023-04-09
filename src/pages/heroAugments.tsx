@@ -39,7 +39,7 @@ const HeroAugments: React.FC = () => {
         <meta property="og:title" content="Hero Augments probabilities – TFT odds" />
 		    <meta property="og:description" content="Discover how you can have the best chance to hit the champion augment your team needs! Find out the probability to hit every hero augments. Optimize your gameplay and climb the ranks with ease." />
       </Helmet>
-      <h2 className="hidden">Hero augments statistics and probabilites – Best strategies to win!</h2>
+      <h2 className="text-3xl mt-4 mb-12 font-bold px-4 text-center"><strong className="text-morning">Hero augments</strong> statistics and probabilities<span className="hidden"> – Best strategies to win!</span></h2>
       <section className="flex items-start flex-col flex-1">
         <aside className="flex flex-col w-full mb-6">
           <h2 className="hidden">Select your stage and your active traits</h2>
