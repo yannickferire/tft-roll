@@ -4,18 +4,14 @@ import { currentSet, setStage } from '../../constants/set';
 
 const Header = () => {
   return (
-    <header className="flex flex-col items-center text-center sm:flex-row mb-8 sm:items-end">
-      <div className="flex items-end mb-5">
-        <NavLink to={`/`}>
-          <img className="logo" src={logo} width="160" alt="TFT Odds" />
-        </NavLink>
-        <h2 className="bg-earlynight px-2 py-1 ml-3 -mb-px rounded text-xs">
-          <span className="opacity-40">
-            Set {currentSet}{setStage == 2 ? '.5': null}
-          </span>
-        </h2>
-      </div>
-      <div className="flex-1">
+    <header className="flex mb-12 items-end">
+      <NavLink to={`/`}><h1 className="text-4xl font-extrabold"><img className="logo" src={logo} width="160" alt="TFT Odds" /></h1></NavLink>
+      <h2 className="bg-earlynight px-2 py-1 ml-3 -mb-px rounded text-xs">
+        <span className="opacity-40">
+          Set {currentSet}{setStage == 2 ? '.5': null}
+        </span>
+      </h2>
+      <div className="flex-1 hidden sm:block">
         <ul className="flex justify-end gap-4 md:gap-6">
           <li>
             <NavLink 
@@ -37,7 +33,7 @@ const Header = () => {
               }
             >Hero Augments</NavLink>
           </li>
-          <li className="relative">
+          <li>
             <NavLink 
               to={`/loaded-dice`}
               className={({ isActive }) =>
@@ -46,9 +42,6 @@ const Header = () => {
                   : "text-crema transition-all duration-300 ease-in-out cursor-pointer font-bold border-b-2 border-midnight hover:border-crema"
               }
             >Loaded Dice</NavLink>
-            <span className="hidden sm:block bg-earlynight px-2 py-1 whitespace-nowrap absolute -top-[26px] left-1/2 -translate-x-1/2 rounded text-[10px]">
-              <span className="opacity-40">NEW!</span>
-            </span>
           </li>
         </ul>
       </div>

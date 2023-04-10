@@ -34,21 +34,12 @@ const HeroAugments: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title data-react-helmet="true">Hero Augments probabilities – TFT odds Set 8.5</title>
-        <link data-react-helmet="true" rel="canonical" href="https://tftodds.com/hero-augments" />
-        <meta data-react-helmet="true" name="description" content="Discover how you can have the best chance to hit the champion augment your team needs! Find out the probability to hit every hero augments. Optimize your gameplay and climb the ranks with ease." />
-        <meta data-react-helmet="true" property="og:title" content="Hero Augments probabilities – TFT odds" />
-		    <meta data-react-helmet="true" property="og:description" content="Discover how you can have the best chance to hit the champion augment your team needs! Find out the probability to hit every hero augments. Optimize your gameplay and climb the ranks with ease." />
-        <meta data-react-helmet="true" property="og:image" content="/share.jpg" />
-        <meta data-react-helmet="true" property="og:url" content="https://tftodds.com/hero-augments" />
-        <meta data-react-helmet="true" property="og:type" content="website" />
-        <meta data-react-helmet="true" name="twitter:card" content="summary_large_image" />
-		    <meta data-react-helmet="true" name="twitter:site" content="@tftodds" />
-        <meta data-react-helmet="true" name="twitter:title" content="Hero Augments probabilities – TFT odds" />
-        <meta data-react-helmet="true" name="twitter:description" content="Discover how you can have the best chance to hit the champion augment your team needs! Find out the probability to hit every hero augments. Optimize your gameplay and climb the ranks with ease." />
-        <meta data-react-helmet="true" name="twitter:image" content="/share.jpg" />
+        <title>Hero Augments probabilities – TFT odds</title>
+        <meta name="description" content="Discover how you can have the best chance to hit the champion augment your team needs! Find out the probability to hit every hero augments. Optimize your gameplay and climb the ranks with ease." />
+        <meta property="og:title" content="Hero Augments probabilities – TFT odds" />
+		    <meta property="og:description" content="Discover how you can have the best chance to hit the champion augment your team needs! Find out the probability to hit every hero augments. Optimize your gameplay and climb the ranks with ease." />
       </Helmet>
-      <h1 className="text-3xl mt-4 mb-12 font-bold px-4 text-center"><strong className="text-morning">Hero augments</strong> statistics and probabilities<span className="hidden"> – Best strategies to win!</span></h1>
+      <h2 className="text-3xl mt-4 mb-12 font-bold px-4 text-center"><strong className="text-morning">Hero augments</strong> statistics and probabilities<span className="hidden"> – Best strategies to win!</span></h2>
       <section className="flex items-start flex-col flex-1">
         <aside className="flex flex-col w-full mb-6">
           <h2 className="hidden">Select your stage and your active traits</h2>
